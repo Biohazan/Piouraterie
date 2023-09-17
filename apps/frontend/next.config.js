@@ -1,14 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'http' | 'https',
-        hostname: 'localhost' | 'piouraterie.vercel.app',
-        port: '4000' | '',
-        pathname: '/public/**',
-      },
-    ],
+    domains: ['localhost:4000', 'piouraterie.vercel.app']
+    // remotePatterns: [
+    //   {
+    //     protocol: '**',
+    //     hostname: '**',
+    //     port: '*',
+    //     pathname: '/public/**',
+    //   },
+    // ],
   },
 }
 
