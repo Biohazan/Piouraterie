@@ -11,6 +11,7 @@ const ProductBar = () => {
   const handleClickOut = () => {
     setIsDropdown(false)
   }
+  
   const productNumber = sessionStorage.getItem('productCount')
 
   return (

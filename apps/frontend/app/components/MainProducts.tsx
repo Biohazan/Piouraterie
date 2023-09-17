@@ -5,6 +5,7 @@ import Loader from './Loader'
 import { ProductsSchema } from '../schema/products.schema'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 const fetchProducts = async (catParams: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/products/${catParams}`)
@@ -32,6 +33,8 @@ const MainProducts = () => {
     ? (params.get('category') as string)
     : 'popular'
 
+
+
   const productsTitle: ProductsTitleType = {
     all: 'Tous les Produits',
     popular: 'Produits Populaires',
@@ -50,7 +53,12 @@ const MainProducts = () => {
     queryKey: ['products', catParams],
     queryFn: () => fetchProducts(catParams),
   })  
+  const productNumber = data?.length || 0
 
+  useEffect(() => {
+    sessionStorage.setItem("productCount", productNumber.toString())
+  }, [productNumber])
+  
   if (isLoading) {
     return <div className="relative w-full h-full my-60"><Loader /></div>
   }
@@ -58,8 +66,8 @@ const MainProducts = () => {
   if (isError) {
     return <div>Une erreur est survenue</div>
   }
-  const productNumber = data?.length || 0
-  sessionStorage.setItem("productCount", productNumber.toString())
+
+ 
 
   return (
     <section className="relative w-full flex flex-col items-center justify-center">
