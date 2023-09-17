@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
 const fetchProducts = async (catParams: string) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/products/${catParams}`)
+  const res = await fetch(`https://piouraterie-backend.vercel.app/products/${catParams}`)
   const data = await res.json()
   return ProductsSchema.parse(data)
 }
@@ -58,7 +58,7 @@ const MainProducts = () => {
   useEffect(() => {
     sessionStorage.setItem("productCount", productNumber.toString())
   }, [productNumber])
-  
+
   if (isLoading) {
     return <div className="relative w-full h-full my-60"><Loader /></div>
   }
