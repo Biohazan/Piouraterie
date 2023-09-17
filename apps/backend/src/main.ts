@@ -5,7 +5,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.enableCors();
+  app.enableCors({ origin: 'https://piouraterie.vercel.app/' });
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     prefix: '/public/',
   });
