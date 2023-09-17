@@ -12,34 +12,23 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductsService = void 0;
+exports.ProductService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const product_schema_1 = require("../schemas/product.schema");
-let ProductsService = class ProductsService {
+let ProductService = class ProductService {
     constructor(productModel) {
         this.productModel = productModel;
     }
-    async create(createProductDto) {
-        const createdProduct = await this.productModel.create(createProductDto);
-        return createdProduct;
-    }
-    async findByCategory(category) {
-        if (category === 'all') {
-            return this.productModel.find().exec();
-        }
-        if (category === 'popular') {
-            return this.productModel.find({ popular: true }).exec();
-        }
-        else
-            return this.productModel.find({ sub_category: category }).exec();
+    async findOne(id) {
+        return this.productModel.findOne({ _id: id }).exec();
     }
 };
-exports.ProductsService = ProductsService;
-exports.ProductsService = ProductsService = __decorate([
+exports.ProductService = ProductService;
+exports.ProductService = ProductService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(product_schema_1.Product.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], ProductsService);
-//# sourceMappingURL=products.service.js.map
+], ProductService);
+//# sourceMappingURL=product.service.js.map

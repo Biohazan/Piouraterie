@@ -6,14 +6,13 @@ import { CreateProductDto } from './dto/create-product.dto';
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsServices: ProductsService) {}
-  @Get()
-  async findAll(): Promise<Product[]> {
-    return this.productsServices.findAll();
+  @Get(':category')
+  async findByCategory(
+    @Param('category') category: string,
+  ): Promise<Product[]> {
+    return this.productsServices.findByCategory(category);
   }
-  @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Product> {
-    return this.productsServices.findOne(id);
-  }
+
   @Post()
   async create(@Body() createProductDto: CreateProductDto) {
     await this.productsServices.create(createProductDto);

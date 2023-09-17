@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { HiOutlineSelector } from 'react-icons/hi'
 
-const ProductBar = ({ productNumber } : {productNumber : number}) => {
+const ProductBar = () => {
   const [isDropdown, setIsDropdown] = useState(false)
 
   const handleClickIn = () => {
@@ -11,6 +11,8 @@ const ProductBar = ({ productNumber } : {productNumber : number}) => {
   const handleClickOut = () => {
     setIsDropdown(false)
   }
+  const productNumber = sessionStorage.getItem('productCount')
+
   return (
     <div className="flex w-full justify-between items-center h-24 px-4 max-w-7xl">
       <div>

@@ -18,8 +18,8 @@ const ProdutCard: FunctionComponent<ProductCardProps> = ({
   price,
 }) => (
   <Link
-    href={`/${id}`}
-    className="group relative block shadow-lg overflow-hidden cursor-pointer max-w-60 xl:max-w-[300px]"
+    href={`/product/${id}`}
+    className="group relative block shadow-lg overflow-hidden cursor-pointer min-w-[230px] xl:max-w-[300px]"
   >
     <div className='flex w-full'>
       <Image

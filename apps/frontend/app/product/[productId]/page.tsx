@@ -1,11 +1,11 @@
 'use client'
 import Image from 'next/image'
 import { useQuery } from '@tanstack/react-query'
-import { ProductSchema } from '../schema/products.schema'
-import Loader from '../components/Loader'
+import { ProductSchema } from '../../schema/products.schema'
+import Loader from '../../components/Loader'
 
 const fetchProduct = async (productId: string) => {
-  const res = await fetch(`http://localhost:4000/products/${productId}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/product/${productId}`)
   const data = await res.json()
   return ProductSchema.parse(data)
 }

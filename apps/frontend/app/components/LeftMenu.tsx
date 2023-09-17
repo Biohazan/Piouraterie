@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const LeftMenu = () => {
@@ -6,7 +7,7 @@ const LeftMenu = () => {
       <ul className="space-y-1">
         <li>
           <a
-            href=""
+            href="/products?category=all"
             className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
           >
             Tout les produits
@@ -36,51 +37,87 @@ const LeftMenu = () => {
 
             <ul className="mt-2 space-y-1 px-4">
               <li>
-                <a
-                  href=""
+                <Link
+                  href="/products?category=etuis_a_cigarettes"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
-                  Banned Users
-                </a>
+                 Etuis à cigarettes
+                </Link>
               </li>
 
               <li>
-                <a
-                  href=""
+                <Link
+                  href="/products?category=portes_monnaies"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
-                  Calendar
-                </a>
+                  Portes Monnaie
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/products?category=escarcelles"
+                  className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                >
+                  Escarcelles
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/products?category=blague_a_tabac"
+                  className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                >
+                  Blague à tabac
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/products?category=sacs_and_sacoches"
+                  className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                >
+                  Sac et Sacoches
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/products?category=etuis_jeux_de_cartes"
+                  className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                >
+                  Etuis pour jeux de cartes
+                </Link>
               </li>
             </ul>
           </details>
         </li>
 
         <li>
-          <a
-            href=""
+          <Link
+            href="/products?category=bijoux"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Bijoux
-          </a>
+          </Link>
         </li>
 
         <li>
-          <a
-            href=""
+          <Link
+            href="/products?category=commandes_sur_mesure"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Commandes sur mesure
-          </a>
+          </Link>
         </li>
 
         <li>
-          <a
-            href=""
+          <Link
+            href="/products?category=cheques_cadeaux"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Chèques Cadeaux
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

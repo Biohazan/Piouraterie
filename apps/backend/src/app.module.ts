@@ -3,13 +3,18 @@ import { Module } from '@nestjs/common';
 // import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ProductModule } from './product/product.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ envFilePath: `.env.development.local` }),
+
     MongooseModule.forRoot(
-      'mongodb+srv://Biohaz:UrbansteamMongo8558@cluster0.gxogm.mongodb.net/Pïouraterie',
+      `mongodb+srv://${process.env.MONGOOSE_USERNAME}:${process.env.MONGOOSE_PASS}@${process.env.MONGOOSE_URL}`,
     ),
     ProductsModule,
+    ProductModule,
   ],
   // controllers: [AppController],
   // providers: [AppService],

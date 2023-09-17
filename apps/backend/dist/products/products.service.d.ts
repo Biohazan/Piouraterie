@@ -5,6 +5,5 @@ export declare class ProductsService {
     private productModel;
     constructor(productModel: Model<Product>);
     create(createProductDto: CreateProductDto): Promise<Product>;
-    findAll(): Promise<Product[]>;
-    findOne(id: string): Promise<Product>;
+    findByCategory(category: string): Promise<Product[]>;
 }

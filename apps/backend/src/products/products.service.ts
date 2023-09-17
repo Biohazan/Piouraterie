@@ -15,12 +15,13 @@ export class ProductsService {
     return createdProduct;
   }
 
-  async findAll(): Promise<Product[]> {
-    return this.productModel.find().exec();
-  }
-
-  async findOne(id: string): Promise<Product> {
-    return this.productModel.findOne({ _id: id }).exec();
+  async findByCategory(category: string): Promise<Product[]> {
+    if (category === 'all') {
+      return this.productModel.find().exec();
+    }
+    if (category === 'popular') {
+      return this.productModel.find({ popular: true }).exec();
+    } else return this.productModel.find({ sub_category: category }).exec();
   }
 
   // async update(): Promise<any> {

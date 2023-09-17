@@ -20,11 +20,8 @@ let ProductsController = class ProductsController {
     constructor(productsServices) {
         this.productsServices = productsServices;
     }
-    async findAll() {
-        return this.productsServices.findAll();
-    }
-    async findOne(id) {
-        return this.productsServices.findOne(id);
+    async findByCategory(category) {
+        return this.productsServices.findByCategory(category);
     }
     async create(createProductDto) {
         await this.productsServices.create(createProductDto);
@@ -33,18 +30,12 @@ let ProductsController = class ProductsController {
 };
 exports.ProductsController = ProductsController;
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], ProductsController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':category'),
+    __param(0, (0, common_1.Param)('category')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
-], ProductsController.prototype, "findOne", null);
+], ProductsController.prototype, "findByCategory", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

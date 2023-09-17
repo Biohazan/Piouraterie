@@ -4,7 +4,6 @@ import { CreateProductDto } from './dto/create-product.dto';
 export declare class ProductsController {
     private readonly productsServices;
     constructor(productsServices: ProductsService);
-    findAll(): Promise<Product[]>;
-    findOne(id: string): Promise<Product>;
+    findByCategory(category: string): Promise<Product[]>;
     create(createProductDto: CreateProductDto): Promise<CreateProductDto>;
 }

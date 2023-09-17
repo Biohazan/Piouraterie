@@ -4,6 +4,7 @@ import Image from 'next/image'
 import logo from '@/public/logo_long.jpg'
 import { CgProfile } from 'react-icons/cg'
 import { useState } from 'react'
+import Link from 'next/link'
 
 function Header() {
   const [isShow, setIsShow] = useState(false)
@@ -34,7 +35,7 @@ function Header() {
           className="cursor-pointer"
         >
           <div className="relative">
-            <a href="#" className="inline-flex items-center gap-3">
+            <div className="inline-flex items-center gap-3">
               Maroquinerie
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +49,7 @@ function Header() {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </div>
 
             {isShow && (
               <div
@@ -56,51 +57,51 @@ function Header() {
                 role="menu"
               >
                 <div className="p-2">
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  <Link
+                  href="/products?category=etuis_a_cigarettes"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Etuis à cigarettes
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  <Link
+                  href="/products?category=portes_monnaies"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Portes monnaies
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  <Link
+                  href="/products?category=escarcelles"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Escarcelles{' '}
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  <Link
+                  href="/products?category=blague_a_tabac"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Blague à tabac{' '}
-                  </a>
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  </Link>
+                  <Link
+                  href="/products?category=sacs_and_sacoches"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Sacs & Sacoches{' '}
-                  </a>
-                  <a
-                    href="#"
-                    className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+                  </Link>
+                  <Link
+                  href="/products?category=etuis_jeux_de_cartes"
+                  className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
                     role="menuitem"
                   >
                     Etuis pour jeux de cartes{' '}
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
@@ -108,13 +109,19 @@ function Header() {
         </li>
 
         <li>
-          <a href="" className='p-2'>Bijoux</a>
+          <Link 
+            href="/products?category=bijoux"
+            className='p-2'>Bijoux</Link>
         </li>
         <li>
-          <a href="" className='p-2'>Commandes sur mesure</a>
+          <Link 
+            href="/products?category=commandes_sur_mesure"
+            className='p-2'>Commandes sur mesure</Link>
         </li>
         <li>
-          <a href="" className='p-2'>Chèques Cadeaux</a>
+          <Link 
+            href="/products?category=cheques_cadeaux"
+            className='p-2'>Chèques Cadeaux</Link>
         </li>
       </nav>
       <div className="flex items-center mx-6">
