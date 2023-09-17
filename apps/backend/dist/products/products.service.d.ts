@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { Product } from 'src/schemas/product.schema';
+import { Product } from '@/schemas/product.schema';
 import { CreateProductDto } from './dto/create-product.dto';
 export declare class ProductsService {
     private productModel;

@@ -1,5 +1,5 @@
 import { ProductService } from './product.service';
-import { Product } from 'src/schemas/product.schema';
+import { Product } from '@/schemas/product.schema';
 export declare class ProductController {
     private readonly productServices;
     constructor(productServices: ProductService);
