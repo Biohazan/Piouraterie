@@ -3,9 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '4000',
+        protocol: 'http' | 'https',
+        hostname: 'localhost' | 'piouraterie.vercel.app',
+        port: '4000' | '',
         pathname: '/public/**',
       },
     ],
