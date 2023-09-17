@@ -14,12 +14,12 @@ const Product = ({ params }: { params: { productId: string } }) => {
   const productId = params.productId
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['products', productId],
+    queryKey: ['product', productId],
     queryFn: () => fetchProduct(productId),
   })
 
   if (isLoading) {
-    return <Loader />
+    return <div className="relative w-full h-full my-60"><Loader /></div>
   }
 
   if (isError) {
