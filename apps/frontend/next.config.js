@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'piouraterie.vercel.app', 'piouraterie.vercel.app'],
+    domains: ['localhost', 'piouraterie-backend.vercel.app', 'piouraterie.vercel.app'],
     // remotePatterns: [
     //   {
     //     protocol: 'https',
