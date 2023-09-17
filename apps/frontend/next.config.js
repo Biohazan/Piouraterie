@@ -4,9 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'piouraterie-backend.vercel.app',
-        // port: '4000' | '',
-        pathname: '/public/**',
+        hostname: '**',
+        // port: '4000',
+        pathname: '**',
       },
     ],
   },
