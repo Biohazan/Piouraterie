@@ -5,10 +5,12 @@ import Loader from './Loader'
 import { ProductsSchema } from '../schema/products.schema'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { MutableRefObject, RefObject, useEffect } from 'react'
 
 const fetchProducts = async (catParams: string) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/products/${catParams}`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/products/${catParams}`,
+  )
   const data = await res.json()
   return ProductsSchema.parse(data)
 }
@@ -27,13 +29,15 @@ type ProductsTitleType = {
   cheques_cadeaux: string
 }
 
-const MainProducts = () => {
+const MainProducts = ({
+  productNumber,
+}: {
+  productNumber: MutableRefObject<Number>
+}) => {
   const params = useSearchParams()
   const catParams: string = params.get('category')
     ? (params.get('category') as string)
     : 'popular'
-
-
 
   const productsTitle: ProductsTitleType = {
     all: 'Tous les Produits',
@@ -49,25 +53,24 @@ const MainProducts = () => {
     cheques_cadeaux: 'Chèques Cadeaux',
   }
 
-  const { data, isLoading, isError, isFetching  } = useQuery({
+  const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ['products', catParams],
     queryFn: () => fetchProducts(catParams),
-  })  
-  const productNumber = data?.length || 0
-
-  useEffect(() => {
-    sessionStorage.setItem("productCount", productNumber.toString())
-  }, [productNumber])
+  })
 
   if (isLoading) {
-    return <div className="relative w-full h-full my-60"><Loader /></div>
+    return (
+      <div className="relative w-full h-full my-60">
+        <Loader />
+      </div>
+    )
   }
 
   if (isError) {
     return <div>Une erreur est survenue</div>
   }
 
- 
+  // productNumber.current = data.length || 0
 
   return (
     <section className="relative w-full flex flex-col items-center justify-center">
@@ -76,7 +79,9 @@ const MainProducts = () => {
           {productsTitle[catParams as keyof typeof productsTitle]}
         </h1>
         {data?.length === 0 ? (
-          <div className='my-20'>Il n&apos;y a pas de produits dans cette categorie</div>
+          <div className="my-20">
+            Il n&apos;y a pas de produits dans cette categorie
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4  lg:gap-8 my-10 ">
             {data?.map((product) => (
@@ -89,7 +94,6 @@ const MainProducts = () => {
                 price={product.price}
               />
             ))}
-            
           </div>
         )}
         <div className="flex w-full justify-end my-10">

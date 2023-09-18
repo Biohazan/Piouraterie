@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
+
 const nextConfig = {
   images: {
-    domains: ['localhost', 'piouraterie-backend.vercel.app', 'piouraterie.vercel.app'],
+    domains: ['localhost','piouraterie-backend.vercel.app', 'piouraterie.vercel.app'],
     // remotePatterns: [
     //   {
-    //     protocol: 'https',
-    //     hostname: 'https://piouraterie.vercel.app',
-    //     // port: '4000' | '',
+    //     protocol: 'http',
+    //     hostname: 'localhost',
+    //     port: '4000',
     //     pathname: '/public/**',
     //   },
     // ],

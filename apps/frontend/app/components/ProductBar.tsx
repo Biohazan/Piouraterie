@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { HiOutlineSelector } from 'react-icons/hi'
 
-const ProductBar = () => {
+const ProductBar = ({productNumber}: {productNumber: MutableRefObject<Number>}) => {
   const [isDropdown, setIsDropdown] = useState(false)
 
   const handleClickIn = () => {
@@ -10,18 +11,16 @@ const ProductBar = () => {
 
   const handleClickOut = () => {
     setIsDropdown(false)
-  }
+  }  
+  console.log(productNumber.current);
+  const number = parseInt(productNumber.current.toLocaleString())
+  console.log(number);
   
-  const productNumber = useRef('')
-
-  useEffect(() => {
-    productNumber.current = sessionStorage.getItem('productCount') || ''
-  }, [])
 
   return (
     <div className="flex w-full justify-between items-center h-24 px-4 max-w-7xl">
       <div>
-        <p>Il y a {productNumber.current} produits</p>
+        <p>Il y a {number} produits</p>
       </div>
       <div
         className="relative flex items-center gap-4 h-12"
@@ -40,21 +39,21 @@ const ProductBar = () => {
         </button>
         {isDropdown && (
           <div className="absolute z-10 top-[48px] right-0 flex flex-col items-start  bg-white w-[190px] rounded-lg">
-            <a href="" className="productBarLink">
+            <Link href="" className="productBarLink">
               <span className="px-4">Pertinence</span>
-            </a>
-            <a href="" className="productBarLink">
+            </Link>
+            <Link href="" className="productBarLink">
               <span className="px-4">Nom de A à Z</span>
-            </a>
-            <a href="" className="productBarLink">
+            </Link>
+            <Link href="" className="productBarLink">
               <span className="px-4"> Nom de Z à A</span>
-            </a>
-            <a href="" className="productBarLink">
+            </Link>
+            <Link href="" className="productBarLink">
               <span className="px-4">Prix Croissants</span>
-            </a>
-            <a href="" className="productBarLink">
+            </Link>
+            <Link href="" className="productBarLink">
               <span className="px-4">Prix décroissant</span>
-            </a>
+            </Link>
           </div>
         )}
       </div>
