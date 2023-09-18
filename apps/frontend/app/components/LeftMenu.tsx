@@ -3,7 +3,7 @@ import React from 'react'
 
 const LeftMenu = () => {
   return (
-    <div className="w-80 p-5 mt-24">
+    <div className="w-80 p-5 mt-24 hidden lg:block">
       <ul className="space-y-1">
         <li>
           <a

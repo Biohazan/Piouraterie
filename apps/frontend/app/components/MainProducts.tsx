@@ -69,7 +69,7 @@ const MainProducts = () => {
   const productNumber = data.length
   return (
     <section className="relative w-full flex flex-col items-center justify-center">
-      <ProductBar productNumber={productNumber}/>
+      {catParams === 'popular' ? '' : <ProductBar productNumber={productNumber}/>}
       <div className="relative flex flex-col items-center w-full max-w-7xl p-5">
         <h1 className="text-4xl m-10">
           {productsTitle[catParams as keyof typeof productsTitle]}
