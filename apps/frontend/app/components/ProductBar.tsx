@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { MutableRefObject, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { HiOutlineSelector } from 'react-icons/hi'
 
-const ProductBar = ({productNumber}: {productNumber: MutableRefObject<Number>}) => {
+const ProductBar = ({productNumber}: {productNumber: Number}) => {
   const [isDropdown, setIsDropdown] = useState(false)
 
   const handleClickIn = () => {
@@ -11,16 +11,12 @@ const ProductBar = ({productNumber}: {productNumber: MutableRefObject<Number>}) 
 
   const handleClickOut = () => {
     setIsDropdown(false)
-  }  
-  console.log(productNumber.current);
-  const number = parseInt(productNumber.current.toLocaleString())
-  console.log(number);
-  
+  }    
 
   return (
     <div className="flex w-full justify-between items-center h-24 px-4 max-w-7xl">
       <div>
-        <p>Il y a {number} produits</p>
+        <p>Il y a {productNumber as number} produits</p>
       </div>
       <div
         className="relative flex items-center gap-4 h-12"

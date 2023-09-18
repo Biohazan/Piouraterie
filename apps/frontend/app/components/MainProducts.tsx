@@ -5,7 +5,7 @@ import Loader from './Loader'
 import { ProductsSchema } from '../schema/products.schema'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { MutableRefObject, RefObject, useEffect } from 'react'
+import ProductBar from './ProductBar'
 
 const fetchProducts = async (catParams: string) => {
   const res = await fetch(
@@ -29,11 +29,7 @@ type ProductsTitleType = {
   cheques_cadeaux: string
 }
 
-const MainProducts = ({
-  productNumber,
-}: {
-  productNumber: MutableRefObject<Number>
-}) => {
+const MainProducts = () => {
   const params = useSearchParams()
   const catParams: string = params.get('category')
     ? (params.get('category') as string)
@@ -57,7 +53,7 @@ const MainProducts = ({
     queryKey: ['products', catParams],
     queryFn: () => fetchProducts(catParams),
   })
-
+  
   if (isLoading) {
     return (
       <div className="relative w-full h-full my-60">
@@ -70,10 +66,10 @@ const MainProducts = ({
     return <div>Une erreur est survenue</div>
   }
 
-  // productNumber.current = data.length || 0
-
+  const productNumber = data.length
   return (
     <section className="relative w-full flex flex-col items-center justify-center">
+      <ProductBar productNumber={productNumber}/>
       <div className="relative flex flex-col items-center w-full max-w-7xl p-5">
         <h1 className="text-4xl m-10">
           {productsTitle[catParams as keyof typeof productsTitle]}
