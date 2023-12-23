@@ -15,6 +15,7 @@ import { signOut, useSession } from 'next-auth/react'
 import { FaRegUser, FaSpinner } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+
 const MainButton = () => {
   // Session Management //
   const { data: session } = useSession()

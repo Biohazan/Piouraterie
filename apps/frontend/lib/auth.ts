@@ -28,6 +28,7 @@ export const authOptions: AuthOptions = {
   jwt: {
     secret: env.JWTSECRETKEY,
   },
+  secret: process.env.NEXTAUTH_SECRET,
   // Configure one or more authentication providers
   providers: [
     CredentialsProvider({
