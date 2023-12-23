@@ -17,12 +17,44 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const product_schema_1 = require("../../src/schemas/product.schema");
+const utils_1 = require("./utils");
 let ProductService = class ProductService {
     constructor(productModel) {
         this.productModel = productModel;
     }
     async findOne(id) {
-        return this.productModel.findOne({ _id: id }).exec();
+        const product = await this.productModel.findOne({ _id: id }).exec();
+        return product;
+    }
+    async modifyOne(id, createProductDto) {
+        const modifiedProduct = await this.productModel.findOneAndUpdate({ _id: id }, createProductDto, { returnOriginal: false });
+        console.log('modifiedproduct', modifiedProduct);
+        return modifiedProduct;
+    }
+    async create(createProductDto, imageArray, files) {
+        const createdProduct = await this.productModel.create(createProductDto);
+        console.log('createdProduct:', createdProduct);
+        const productId = `${createdProduct._id}`;
+        if (createdProduct) {
+            const newImageArray = await (0, utils_1.fileManagement)(files, productId, imageArray);
+            createProductDto.imageArray = newImageArray;
+            if (imageArray) {
+                for (const image of imageArray) {
+                    if (image.main) {
+                        createProductDto.picUrl = image.path;
+                    }
+                }
+            }
+            const modifiedProduct = await this.modifyOne(productId, createProductDto);
+            return modifiedProduct;
+        }
+        else
+            throw new Error('Something went wrong');
+    }
+    async deleteItem(id) {
+        const deleteItem = await this.productModel.findByIdAndDelete(id);
+        console.log('delete service', deleteItem);
+        return deleteItem;
     }
 };
 exports.ProductService = ProductService;

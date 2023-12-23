@@ -4,11 +4,13 @@ import { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    logger: ['log', 'error', 'warn'],
+  });
   app.enableCors({
     origin: ['https://piouraterie.vercel.app', 'http://localhost:3000'],
   });
-  app.useStaticAssets(join(__dirname, '..', 'public'), {
+  app.useStaticAssets(join(__dirname, '..', '../public'), {
     prefix: '/public/',
   });
   await app.listen(4000);

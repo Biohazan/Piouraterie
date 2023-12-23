@@ -21,10 +21,10 @@ export class Product {
   category: string;
 
   @Prop()
-  sub_category: string;
+  popular: boolean;
 
   @Prop()
-  popular: boolean;
+  imageArray: Array<{ name: string; path: string; main: boolean }>;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

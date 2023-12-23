@@ -36,12 +36,12 @@ __decorate([
 ], Product.prototype, "category", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Product.prototype, "sub_category", void 0);
-__decorate([
-    (0, mongoose_1.Prop)(),
     __metadata("design:type", Boolean)
 ], Product.prototype, "popular", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Array)
+], Product.prototype, "imageArray", void 0);
 exports.Product = Product = __decorate([
     (0, mongoose_1.Schema)()
 ], Product);

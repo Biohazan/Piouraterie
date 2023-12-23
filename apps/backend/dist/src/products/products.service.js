@@ -16,24 +16,28 @@ exports.ProductsService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const product_schema_1 = require("../../src/schemas/product.schema");
+const product_schema_1 = require("../schemas/product.schema");
 let ProductsService = class ProductsService {
     constructor(productModel) {
         this.productModel = productModel;
     }
-    async create(createProductDto) {
-        const createdProduct = await this.productModel.create(createProductDto);
-        return createdProduct;
+    async findOne(id) {
+        return this.productModel.findOne({ _id: id }).exec();
     }
-    async findByCategory(category) {
+    async findByCategory(category, queryParams) {
         if (category === 'all') {
-            return this.productModel.find().exec();
+            console.log(queryParams);
+            return this.productModel.find().sort(queryParams).exec();
         }
         if (category === 'popular') {
             return this.productModel.find({ popular: true }).exec();
         }
-        else
-            return this.productModel.find({ sub_category: category }).exec();
+        else {
+            return this.productModel
+                .find({ category: category })
+                .sort(queryParams)
+                .exec();
+        }
     }
 };
 exports.ProductsService = ProductsService;

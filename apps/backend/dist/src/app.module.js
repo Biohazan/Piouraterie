@@ -8,10 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const products_module_1 = require("./products/products.module");
 const mongoose_1 = require("@nestjs/mongoose");
-const product_module_1 = require("./product/product.module");
 const config_1 = require("@nestjs/config");
+const users_module_1 = require("./users/users.module");
+const auth_module_1 = require("./auth/auth.module");
+const product_module_1 = require("./product/product.module");
+const products_module_1 = require("./products/products.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -19,9 +21,11 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({ envFilePath: `.env.development.local` }),
+            users_module_1.UsersModule,
+            auth_module_1.AuthModule,
             mongoose_1.MongooseModule.forRoot(`mongodb+srv://${process.env.MONGOOSE_USERNAME}:${process.env.MONGOOSE_PASS}@${process.env.MONGOOSE_URL}`),
-            products_module_1.ProductsModule,
             product_module_1.ProductModule,
+            products_module_1.ProductsModule,
         ],
     })
 ], AppModule);

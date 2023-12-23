@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
+import { IoIosArrowDown } from 'react-icons/io'
 
 const LeftMenu = () => {
   return (
-    <div className="w-80 p-5 mt-24 hidden lg:block">
+    <div className="w-80 p-5 mt-10 hidden lg:block">
       <ul className="space-y-1">
         <li>
           <a
-            href="/products?category=all"
+            href="/produits?category=all"
             className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
           >
             Tout les produits
@@ -20,25 +21,14 @@ const LeftMenu = () => {
               <span className="text-sm font-medium"> Maroquinerie </span>
 
               <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              <IoIosArrowDown />
               </span>
             </summary>
 
             <ul className="mt-2 space-y-1 px-4">
               <li>
                 <Link
-                  href="/products?category=etuis_a_cigarettes"
+                  href="/produits?category=etuis_à_cigarettes"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                  Etuis à cigarettes
@@ -47,7 +37,7 @@ const LeftMenu = () => {
 
               <li>
                 <Link
-                  href="/products?category=portes_monnaies"
+                  href="/produits?category=portes_monnaies"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   Portes Monnaie
@@ -56,7 +46,7 @@ const LeftMenu = () => {
 
               <li>
                 <Link
-                  href="/products?category=escarcelles"
+                  href="/produits?category=escarcelles"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   Escarcelles
@@ -65,7 +55,7 @@ const LeftMenu = () => {
 
               <li>
                 <Link
-                  href="/products?category=blague_a_tabac"
+                  href="/produits?category=blague_à_tabac"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   Blague à tabac
@@ -74,7 +64,7 @@ const LeftMenu = () => {
 
               <li>
                 <Link
-                  href="/products?category=sacs_and_sacoches"
+                  href="/produits?category=sacs_et_sacoches"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   Sac et Sacoches
@@ -83,7 +73,7 @@ const LeftMenu = () => {
 
               <li>
                 <Link
-                  href="/products?category=etuis_jeux_de_cartes"
+                  href="/produits?category=etuis_jeux_de_cartes"
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   Etuis pour jeux de cartes
@@ -95,7 +85,7 @@ const LeftMenu = () => {
 
         <li>
           <Link
-            href="/products?category=bijoux"
+            href="/produits?category=bijoux"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Bijoux
@@ -104,7 +94,7 @@ const LeftMenu = () => {
 
         <li>
           <Link
-            href="/products?category=commandes_sur_mesure"
+            href="/produits?category=commandes_sur_mesure"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Commandes sur mesure
@@ -113,7 +103,7 @@ const LeftMenu = () => {
 
         <li>
           <Link
-            href="/products?category=cheques_cadeaux"
+            href="/produits?category=cheques_cadeaux"
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
             Chèques Cadeaux

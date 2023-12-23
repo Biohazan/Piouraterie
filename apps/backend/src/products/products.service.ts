@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Product } from '../../src/schemas/product.schema';
-import { CreateProductDto } from './dto/create-product.dto';
+import { Product } from '../schemas/product.schema';
 
 @Injectable()
 export class ProductsService {
@@ -10,18 +9,26 @@ export class ProductsService {
     @InjectModel(Product.name) private productModel: Model<Product>,
   ) {}
 
-  async create(createProductDto: CreateProductDto): Promise<Product> {
-    const createdProduct = await this.productModel.create(createProductDto);
-    return createdProduct;
+  async findOne(id: string): Promise<Product> {
+    return this.productModel.findOne({ _id: id }).exec();
   }
 
-  async findByCategory(category: string): Promise<Product[]> {
+  async findByCategory(
+    category: string,
+    queryParams: string,
+  ): Promise<Product[]> {
     if (category === 'all') {
-      return this.productModel.find().exec();
+      console.log(queryParams);
+      return this.productModel.find().sort(queryParams).exec();
     }
     if (category === 'popular') {
       return this.productModel.find({ popular: true }).exec();
-    } else return this.productModel.find({ sub_category: category }).exec();
+    } else {
+      return this.productModel
+        .find({ category: category })
+        .sort(queryParams)
+        .exec();
+    }
   }
 
   // async update(): Promise<any> {

@@ -1,23 +1,19 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { Product } from '../../src/schemas/product.schema';
-import { CreateProductDto } from './dto/create-product.dto';
+import { Product } from '../schemas/product.schema';
 
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsServices: ProductsService) {}
+
   @Get(':category')
   async findByCategory(
     @Param('category') category: string,
+    @Query() queryParams,
   ): Promise<Product[]> {
-    return this.productsServices.findByCategory(category);
+    return this.productsServices.findByCategory(category, queryParams);
   }
 
-  @Post()
-  async create(@Body() createProductDto: CreateProductDto) {
-    await this.productsServices.create(createProductDto);
-    return createProductDto;
-  }
   // @Put()
   // async update() {
   //   await this.productsServices.update();

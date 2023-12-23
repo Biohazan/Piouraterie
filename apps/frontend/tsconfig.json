@@ -27,8 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/components/ProdutCard.tsx",
-    "app/Providers.jsx",
+    "app/components/ProductCard.tsx",
+    "app/context/Providers.jsx",
     "app/components/Loader.jsx"
   ],
   "exclude": ["node_modules"]

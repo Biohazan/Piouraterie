@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const products_controller_1 = require("./products.controller");
 const products_service_1 = require("./products.service");
 const mongoose_1 = require("@nestjs/mongoose");
-const product_schema_1 = require("../../src/schemas/product.schema");
+const product_schema_1 = require("../schemas/product.schema");
 let ProductsModule = class ProductsModule {
 };
 exports.ProductsModule = ProductsModule;

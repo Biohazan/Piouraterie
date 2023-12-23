@@ -5,9 +5,10 @@ export const ProductSchema = z.object({
   name: z.string(),
   describe: z.string(),
   picUrl: z.string(),
-  price: z.number(),
+  price: z.number().positive(),
   category: z.string(),
-  sub_category: z.string(),
+  popular: z.boolean(),
+  imageArray: z.array(z.object({ name: z.string(), path: z.string(), main: z.boolean() })),
 })
 
 export const ProductsSchema = z.array(ProductSchema)
@@ -19,3 +20,6 @@ export const ProductsResponseSchema = z.object({
 export const ProductResponseSchema = z.object({
   product: ProductSchema,
 })
+
+export type ProductSchemaType = z.infer<typeof ProductResponseSchema>
+export type ProductType = z.infer<typeof ProductSchema>

@@ -1,8 +1,5 @@
 /* Menu mobile */
-#toggle {
-  display: none;
-}
-label {
+#toggleLabel {
   display: flex;
   align-items: center;
   position: relative;
@@ -31,29 +28,16 @@ label {
   }
 }
 
-#toggle:checked + * #burger {
+#toggleLabel[data-state=open] > #burger {
   transform: rotate(45deg);
 }
 
-#toggle:checked + * #burger::before {
+#toggleLabel[data-state=open] > #burger::before {
   top: 0;
   transform: rotate(0);
 }
 
-#toggle:checked + * #burger::after {
+#toggleLabel[data-state=open] > #burger::after {
   top: 0;
   transform: rotate(90deg);
-}
-
-.navWrapper {
-  visibility: hidden;
-}
-
-#toggle:checked ~ .navWrapper {
-  visibility: visible;
-  z-index: 10;
-  // & a {
-  //   color: black;
-  //   text-shadow: none;
-  // }
 }

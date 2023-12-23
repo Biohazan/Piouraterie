@@ -30,8 +30,12 @@ export declare class Product {
     price: number;
     describe: string;
     category: string;
-    sub_category: string;
     popular: boolean;
+    imageArray: Array<{
+        name: string;
+        path: string;
+        main: boolean;
+    }>;
 }
 export declare const ProductSchema: import("mongoose").Schema<Product, import("mongoose").Model<Product, any, any, any, import("mongoose").Document<unknown, any, Product> & Product & {
     _id: import("mongoose").Types.ObjectId;

@@ -10,7 +10,7 @@ const fetchProduct = async (productId: string) => {
   return ProductSchema.parse(data)
 }
 
-const Product = ({ params }: { params: { productId: string } }) => {
+const  Product = ({ params }: { params: { productId: string } }) => {
   const productId = params.productId
 
   const { data, isLoading, isError } = useQuery({

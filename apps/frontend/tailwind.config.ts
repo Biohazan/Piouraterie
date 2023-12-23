@@ -13,6 +13,20 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes: {
+        slideinTop: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(200px)',
+          },
+        },
+      },
+      animation: {
+        'slide-in-top': 'slideinTop 500ms ease-in-out both',
+      },
     },
   },
   plugins: [],

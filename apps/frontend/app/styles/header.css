@@ -1,9 +1,5 @@
 /* Menu mobile */
-#toggle {
-  display: none;
-}
-
-label {
+#toggleLabel {
   display: flex;
   align-items: center;
   position: relative;
@@ -13,7 +9,7 @@ label {
   z-index: 20;
   @apply lg:hidden;
 }
-label span, label span::before, label span::after {
+#toggleLabel span, #toggleLabel span::before, #toggleLabel span::after {
   display: block;
   position: absolute;
   width: 100%;
@@ -21,34 +17,25 @@ label span, label span::before, label span::after {
   background-color: #616161;
   transition: 0.3s;
 }
-label span::before {
+#toggleLabel span::before {
   content: "";
   top: -8px;
 }
-label span::after {
+#toggleLabel span::after {
   content: "";
   top: 8px;
 }
 
-#toggle:checked + * #burger {
+#toggleLabel[data-state=open] > #burger {
   transform: rotate(45deg);
 }
 
-#toggle:checked + * #burger::before {
+#toggleLabel[data-state=open] > #burger::before {
   top: 0;
   transform: rotate(0);
 }
 
-#toggle:checked + * #burger::after {
+#toggleLabel[data-state=open] > #burger::after {
   top: 0;
   transform: rotate(90deg);
-}
-
-.navWrapper {
-  visibility: hidden;
-}
-
-#toggle:checked ~ .navWrapper {
-  visibility: visible;
-  z-index: 10;
 }/*# sourceMappingURL=header.css.map */
