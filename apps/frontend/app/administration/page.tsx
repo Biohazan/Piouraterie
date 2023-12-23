@@ -1,8 +1,7 @@
 
-async function Admin({ children }: { children: React.ReactNode }) {
- 
+async function Admin() {
 
-  return <div>administration</div>
+  return <div>Administration</div>
 }
 
 export default Admin
