@@ -4,7 +4,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { LoginSchemaType, loginSchema } from '../../schema/login.schema'
-import { useUserStore } from '../../store/ProductStore'
 import { signIn } from 'next-auth/react'
 
 const loginUser = async (data: LoginSchemaType) => {
@@ -17,7 +16,6 @@ const loginUser = async (data: LoginSchemaType) => {
 }
 
 const Login = () => {
-  const { updateUser } = useUserStore()
 
   // View Password //
   const [viewPass, setViewPass] = useState<String>('password')
@@ -30,7 +28,6 @@ const Login = () => {
   const { mutate, isLoading } = useMutation(loginUser, {
     onSuccess: (data) => {
       console.log('Onsucces', data)
-      updateUser(data)
       // handleCloseLogin()
     },
     onError: () => {

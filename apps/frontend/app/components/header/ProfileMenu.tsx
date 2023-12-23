@@ -1,10 +1,9 @@
-import { useUserStore } from '@/app/store/ProductStore'
 import Link from 'next/link'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { FiSettings } from 'react-icons/fi'
 
 const ProfileMenu = ({ setShowProfileMenu }: { setShowProfileMenu: any }) => {
-  const { reset } = useUserStore()
+  // const { reset } = useUserStore()
   return (
     <ul
       className="space-y-1 absolute top-12 right-0 drop-shadow-lg bg-white "
@@ -45,7 +44,7 @@ const ProfileMenu = ({ setShowProfileMenu }: { setShowProfileMenu: any }) => {
       <li className="border-t-2 px-0 py-2 my-1">
         <span
           className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 hover:underline underline-offset-4 cursor-pointer"
-          onClick={reset}
+          // onClick={reset}
         >
           <AiOutlineLogout color={'red'} />
           Déconnexion
