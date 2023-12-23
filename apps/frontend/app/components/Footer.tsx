@@ -13,7 +13,6 @@ async function Footer() {
   return (
     <footer className="border-black border-t-4 ">
       <h1>Bienvenue {session?.user.name}</h1>
-      {JSON.stringify(session?.user, null, 2)}
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a href="/" className="">
