@@ -23,9 +23,9 @@ const NextBreadcrumb = ({
   const paths = usePathname()
   const params = useSearchParams()
 
-  const pathNames = paths.split('/').filter((path) => path)
-  if (params.size > 0 && params.get('category') !== 'all') {
-    pathNames.push(`${params.get('category')}`)
+  const pathNames = paths?.split('/').filter((path) => path)
+  if (params?.size > 0 && params?.get('category') !== 'all') {
+    pathNames?.push(`${params?.get('category')}`)
   }
 
   return (
@@ -38,13 +38,14 @@ const NextBreadcrumb = ({
               Accueil
             </Link>
           </li>
-          {pathNames.length > 0 && separator}
-          {pathNames.map((link, index) => {
+          {pathNames && pathNames.length > 0 && separator}
+          {pathNames && pathNames.map((link, index) => {
             let href = `/${pathNames.slice(0, index + 1).join('/')}`
             let itemClasses =
               paths === href ? `${listClasses} ${activeClasses}` : listClasses
             let itemLink = capitalizeLinks
-              ? link[0].toUpperCase() + link.slice(1, link.length).replaceAll('_', ' ')
+              ? link[0].toUpperCase() +
+                link.slice(1, link.length).replaceAll('_', ' ')
               : link.replace('_', '^')
             return (
               <React.Fragment key={index}>
