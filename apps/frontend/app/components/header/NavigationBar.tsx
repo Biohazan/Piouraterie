@@ -4,7 +4,6 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
@@ -14,17 +13,17 @@ const NavigationBar = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem className="p-0">
-          <NavigationMenuTrigger className="p-4 py-6 gap-3 text-base">
+          <NavigationMenuTrigger className="p-3 py-6 gap-3 text-sm">
             Maroquinerie
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="w-96 rounded-md border border-gray-100 shadow-lg">
-            <ul className="w-[270px]">
-              <div className="font-bold p-4 pb-0">Maroquineire</div>
+          <NavigationMenuContent className="rounded-md border border-gray-100 shadow-lg">
+            <ul className="w-[230px]">
+              <div className="font-bold p-3 pb-0 text-sm">Maroquineire</div>
               <Link
                 href="/produits?category=etuis_à_cigarettes"
                 className="flex px-2 pt-2 !no-underline"
               >
-                <span className="inline-flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="inline-flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Etuis à cigarettes
                 </span>
               </Link>
@@ -33,7 +32,7 @@ const NavigationBar = () => {
                 href="/produits?category=portes_monnaies"
                 className="flex px-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Portes monnaies
                 </span>
               </Link>
@@ -42,7 +41,7 @@ const NavigationBar = () => {
                 href="/produits?category=escarcelles"
                 className="flex px-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Escarcelles{' '}
                 </span>
               </Link>
@@ -51,7 +50,7 @@ const NavigationBar = () => {
                 href="/produits?category=blague_à_tabac"
                 className="flex px-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Blague à tabac{' '}
                 </span>
               </Link>
@@ -59,7 +58,7 @@ const NavigationBar = () => {
                 href="/produits?category=sacs_et_sacoches"
                 className="flex px-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Sacs & Sacoches{' '}
                 </span>
               </Link>
@@ -67,7 +66,7 @@ const NavigationBar = () => {
                 href="/produits?category=etuis_jeux_de_cartes"
                 className="flex px-2 pb-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Etuis pour jeux de cartes{' '}
                 </span>
               </Link>
@@ -76,17 +75,17 @@ const NavigationBar = () => {
         </NavigationMenuItem>
 
         <NavigationMenuItem className="p-0">
-          <NavigationMenuTrigger className="p-4 py-6 gap-3 text-base">
+          <NavigationMenuTrigger className="p-3 py-6 gap-3 text-sm">
             Bijoux
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="w-96 rounded-md border border-gray-100 shadow-lg">
-            <ul className="w-[270px]">
-              <div className="font-bold p-4 pb-0">Bijoux</div>
+          <NavigationMenuContent className=" rounded-md border border-gray-100 shadow-lg">
+            <ul className="w-[230px]">
+              <div className="font-bold p-3 pb-0 text-sm">Bijoux</div>
               <Link
                 href="/produits?category=colliers"
                 className="flex px-2 pt-2 !no-underline"
               >
-                <span className="inline-flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="inline-flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Colliers
                 </span>
               </Link>
@@ -95,7 +94,7 @@ const NavigationBar = () => {
                 href="/produits?category=boucles_d_oreilles"
                 className="flex px-2 pb-2 !no-underline"
               >
-                <span className="flex w-full rounded-lg p-4 hover:bg-accent ">
+                <span className="flex w-full rounded-lg p-3 hover:bg-accent text-xs">
                   Boucles D&apos;oreilles
                 </span>
               </Link>
@@ -109,7 +108,7 @@ const NavigationBar = () => {
             legacyBehavior
             passHref
           >
-            <NavigationMenuLink className="p-4 rounded-md gap-3 text-base  hover:bg-accent hover:text-accent-foreground !no-underline">
+            <NavigationMenuLink className="p-3 rounded-md gap-3 text-sm  hover:bg-accent hover:text-accent-foreground !no-underline">
               Commandes sur mesure
             </NavigationMenuLink>
           </Link>
@@ -120,7 +119,7 @@ const NavigationBar = () => {
             legacyBehavior
             passHref
           >
-            <NavigationMenuLink className="p-4 rounded-md gap-3 text-base hover:bg-accent hover:text-accent-foreground !no-underline">
+            <NavigationMenuLink className="p-3 rounded-md gap-3 text-sm hover:bg-accent hover:text-accent-foreground !no-underline">
               Chèques Cadeaux
             </NavigationMenuLink>
           </Link>

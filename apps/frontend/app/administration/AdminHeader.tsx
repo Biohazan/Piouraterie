@@ -1,5 +1,5 @@
 'use client'
-import { redirect, useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import { FiSearch } from 'react-icons/fi'
 import { useProductStore } from '../store/ProductStore'
@@ -14,7 +14,6 @@ import {
 import { DialogClose } from '@radix-ui/react-dialog'
 import { editProduct } from '@/lib/fetchFunction'
 import { useSession } from 'next-auth/react'
-import { revalidateTag } from 'next/cache'
 import { redirectToProducts } from './produits/serverActions'
 
 const AdminHeader = () => {
@@ -31,7 +30,7 @@ const AdminHeader = () => {
       dynamicTitle = 'Nouveau produit'
       break
     case null:
-      dynamicTitle = 'Produit'
+      dynamicTitle = 'Tous les produits...'
       break
     default:
       dynamicTitle = product.name
@@ -53,35 +52,35 @@ const AdminHeader = () => {
 
   return (
     <div className="adminHeader rounded-full mt-6 flex items-center justify-between min-h-[100px] w-full p-10 bg-primary-foreground shadow-md">
-      <h1 className="text-4xl">{dynamicTitle}</h1>
+      <h1 className="text-xl font-bold">{dynamicTitle}</h1>
       {path?.split('/')[2] === 'ajouter_un_produit' ? (
         <div className="flex items-center gap-10">
           {productId !== 'nouveau_produit' && (
             <Dialog>
               <DialogTrigger className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
                 <span className="absolute inset-y-0 right-0 w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
-                <span className="relative tracking-wider text-base font-bold text-red-500 transition-colors group-hover:text-white">
+                <span className="relative tracking-wider text-sm font-bold text-red-500 transition-colors group-hover:text-white">
                   Supprimer
                 </span>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle className="text-2xl border-b py-1">
+                  <DialogTitle className="text-xl border-b py-1">
                     Confirmation de suppression
                   </DialogTitle>
-                  <DialogDescription className="py-4 text-base">
-                    Etes vous sur de vouloir supprimer {product.name} ?
+                  <DialogDescription className="py-1 text-base">
+                    Etes vous sur de vouloir supprimer <strong>&quot;{product.name}&quot;</strong> ?
                   </DialogDescription>
                   <div className="flex gap-24 items-center justify-center py-6">
-                    <DialogClose className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-10 py-4 focus:outline-none focus:ring cursor-pointer">
+                    <DialogClose className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
                       <span className="absolute inset-y-0 right-0 w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
-                      <span className="relative tracking-wider text-base font-bold text-red-500 transition-colors group-hover:text-white">
+                      <span className="relative tracking-wider text-sm font-bold text-red-500 transition-colors group-hover:text-white">
                         Non
                       </span>
                     </DialogClose>
                     <button
                       onClick={deleteItem}
-                      className="group relative inline-block overflow-hidden rounded-full border border-accent px-10 py-4 focus:outline-none focus:ring cursor-pointer"
+                      className="group relative inline-block overflow-hidden rounded-full border border-accent px-5 py-2 focus:outline-none focus:ring cursor-pointer"
                     >
                       <span className="absolute inset-y-0 left-0 w-[2px] bg-accent transition-all group-hover:w-full group-active:bg-accent"></span>
                       <span className="relative tracking-wider text-base font-bold text-accent transition-colors group-hover:text-white">

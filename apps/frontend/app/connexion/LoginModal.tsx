@@ -1,6 +1,6 @@
 'use client'
 
-import LoginForm from '@/app/components/LoginForm'
+import LoginForm from '@/app/components/header/LoginForm'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -10,7 +10,7 @@ const LoginModal = () => {
 
   return (
     <Dialog open={pathName === '/connexion'} onOpenChange={() => router.back()}>
-      <DialogContent>
+      <DialogContent className="">
         <LoginForm />
       </DialogContent>
     </Dialog>

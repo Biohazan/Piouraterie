@@ -31,7 +31,7 @@ function Header() {
             className="hidden lg:flex z-50"
             show={true}
             appear={true}
-            enter="transition-all ease-in-out duration-300 delay-[200ms]"
+            enter="transition-all ease-in-out duration-300"
             enterFrom="opacity-0 translate-x-[60px]"
             enterTo="opacity-100 translate-x-0"
             leave="transition-all ease-in-out duration-300"
@@ -48,7 +48,7 @@ function Header() {
           className="lg:hidden"
           show={true}
           appear={true}
-          enter="transition-all ease-in-out duration-300 delay-[200ms]"
+          enter="transition-all ease-in-out duration-300"
           enterFrom="opacity-0 translate-x-[60px]"
           enterTo="opacity-100 translate-x-0"
           leave="transition-all ease-in-out duration-300"

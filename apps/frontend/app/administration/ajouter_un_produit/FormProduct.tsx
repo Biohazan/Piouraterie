@@ -121,6 +121,7 @@ function FormProduct({
         message: 'Ajouter au moins une image',
       })
       setTab('image')
+      return
     }
     if (product._id === '') {
       const formData = await transformAndResizeBody(data)
