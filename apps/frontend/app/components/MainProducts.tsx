@@ -80,7 +80,7 @@ const MainProducts = ({
         <ProductBar productNumber={productNumber} />
       )}
       <div className="relative flex flex-col items-center w-full max-w-7xl pt-0">
-        <h1 className="text-4xl m-10">
+        <h1 className="text-2xl m-10">
           {productsTitle[catParams as keyof typeof productsTitle]}
         </h1>
         {data?.length === 0 ? (

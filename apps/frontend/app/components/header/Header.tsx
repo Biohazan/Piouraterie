@@ -13,13 +13,13 @@ function Header() {
 
   return (
     <>
-      <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-4 w-full bg-white py-4 shadow-md">
+      <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-4 w-full bg-white py-2 shadow-md">
         {/* Desktop Menu */}
         <Link href="/" className="flex items-center h-full ml-5 self-center">
           <Image
             src={logo}
             quality={20}
-            width={200}
+            width={150}
             alt="Logo la piouraterie"
             className="h-auto"
             loading='lazy'
