@@ -21,9 +21,6 @@ const Products = async ({
   const catParams = searchParams?.category ? searchParams?.category : 'all'
   const initialData = await fetchProducts(catParams, '')
 
-  console.log('main', catParams)
-  console.log(initialData)
-
   return (
     <section className="flex min-h-screen">
       <LeftMenu />

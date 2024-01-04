@@ -7,12 +7,12 @@ const LeftMenu = () => {
     <div className="w-80 p-5 mt-10 hidden lg:block">
       <ul className="space-y-1">
         <li>
-          <a
+          <Link
             href="/produits?category=all"
             className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
           >
             Tout les produits
-          </a>
+          </Link>
         </li>
 
         <li>

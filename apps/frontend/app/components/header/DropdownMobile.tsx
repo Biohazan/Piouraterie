@@ -7,12 +7,7 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import Link from 'next/link'
@@ -23,13 +18,13 @@ const DropdownMobile = () => {
     <DropdownMenu>
       {/* Burger and Mobile Menu */}
       <DropdownMenuTrigger
-        id="toggleLabel"
+        id="toggleLabel"  
         aria-label="Ouvrir le menu"
         className="mx-4 sm:mx-6"
       >
         <span id="burger"></span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mr-4 mt-4">
+      <DropdownMenuContent className="mr-4 mt-4 w-52">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger className="flex items-center gap-3 p-4">
@@ -78,13 +73,27 @@ const DropdownMobile = () => {
               </Link>
             </AccordionContent>
           </AccordionItem>
-        </Accordion>
+          <AccordionItem value="item-2">
+            <AccordionTrigger className="flex items-center gap-3 p-4">
+              Bijoux
+            </AccordionTrigger>
+            <AccordionContent>
+              <Link
+                href="/produits?category=colliers"
+                className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+              >
+                <DropdownMenuItem>Colliers</DropdownMenuItem>
+              </Link>
 
-        <DropdownMenuItem>
-          <Link href="/produits?category=bijoux" className="p-2">
-            Bijoux
-          </Link>
-        </DropdownMenuItem>
+              <Link
+                href="/produits?category=boucles_d_oreilles"
+                className="block rounded-lg px-4 py-2 text-sm  hover:bg-gray-50 hover:text-gray-700"
+              >
+                <DropdownMenuItem>Boucles D&apos;oreilles</DropdownMenuItem>
+              </Link>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
         <DropdownMenuItem>
           <Link href="/produits?category=commandes_sur_mesure" className="p-2">
             Commandes sur mesure
