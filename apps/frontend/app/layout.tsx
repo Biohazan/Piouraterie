@@ -1,15 +1,16 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Ubuntu } from 'next/font/google'
+import { Princess_Sofia, Sofia, Ubuntu } from 'next/font/google'
 import Header from './components/header/Header'
-import Providers from './context/Providers'
 import Footer from './components/Footer'
 import NextBreadcrumb from './components/NextBreadcrumb'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
+import Providers from './context/Providers'
 
 const ubuntu = Ubuntu({ subsets: ['latin'], weight: ['300'] })
+const sofia = Sofia({ subsets: ['latin'], weight: ['400'], variable: '--font-sofia', })
+const princess = Princess_Sofia({ subsets: ['latin'], weight: ['400'], variable: '--font-princess', })
 
 export const metadata: Metadata = {
   title: 'La Piouraterie',
@@ -18,16 +19,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  modal
+  modal,
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode
   modal?: React.ReactNode
 }) {
   return (
     <html lang="fr">
-      <body className={ubuntu.className} cz-shortcut-listen="true">
+      <body className={`${ubuntu.className} ${sofia.variable} ${princess.variable}`} cz-shortcut-listen="true">
         <Providers>
-        {modal}
+          {modal}
           <Header />
           {/* <NextBreadcrumb
             separator={<MdOutlineKeyboardArrowRight />}
@@ -37,7 +38,7 @@ export default async function RootLayout({
           /> */}
           {children}
           <Footer />
-        <ReactQueryDevtools />
+          <ReactQueryDevtools />
         </Providers>
       </body>
     </html>

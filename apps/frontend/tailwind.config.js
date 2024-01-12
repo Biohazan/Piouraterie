@@ -15,6 +15,10 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    fontFamily: {
+      'sofia': ['var(--font-sofia) ', 'Ubuntu', 'sans-sherif' ],
+      'princess': ['var(--font-princess)', 'Ubuntu', 'sans-sherif' ],
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
@@ -72,5 +76,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('autoprefixer')],
 }

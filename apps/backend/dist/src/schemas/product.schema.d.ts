@@ -31,6 +31,8 @@ export declare class Product {
     describe: string;
     category: string;
     popular: boolean;
+    colors: Array<string>;
+    material: string;
     imageArray: Array<{
         name: string;
         path: string;

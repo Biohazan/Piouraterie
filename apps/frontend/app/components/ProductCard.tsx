@@ -9,20 +9,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ProductSchemaType } from '../schema/products.schema'
 
-// export type ProductCardProps = {
-//   id: string
-//   name: string
-//   picUrl: string
-//   description: string
-//   price: number
-// }
 
 const ProductCard = ({ product }: ProductSchemaType) => {
   return (
     // <Link href={`/product/${product._id}`}>
-    <Carousel className="h-80 group relative block shadow-lg w-80 overflow-hidden">
+    <Carousel className="h-80 group relative block shadow-lg w-80 overflow-hidden rounded-xl">
       <CarouselContent>
-        {product.imageArray.map((image, index) => (
+        {product.imageArray?.map((image, index) => (
           <CarouselItem key={index}>
             <Link href={`/product/${product._id}`}>
               <Image
@@ -41,9 +34,9 @@ const ProductCard = ({ product }: ProductSchemaType) => {
         ))}
       </CarouselContent>
       <div className="absolute top-0 right-0">
-        <button className="group/button m-2 relative inline-block overflow-hidden border bg-black border-black px-3 lg:px-4 py-2 focus:outline-none focus:ring">
-          <span className="absolute inset-y-0 left-0 w-[2px] bg-white transition-all group-hover/button:w-full group-active:bg-accent"></span>
-          <span className="relative text-xs font-medium text-white transition-colors group-hover/button:text-black">
+        <button className="group/button rounded-bl-xl rounded-tr-xl m-2 relative inline-block overflow-hidden border bg-primary-foreground border-primary-foreground px-3 lg:px-4 py-2 focus:outline-none focus:ring">
+          <span className="absolute inset-y-0 left-0 w-[2px] bg-accent/50 transition-all group-hover/button:w-full group-active:bg-accent/50"></span>
+          <span className="relative text-xs font-medium text-black transition-colors group-hover/button:text-black">
             Ajouter au panier
           </span>
         </button>
@@ -51,21 +44,15 @@ const ProductCard = ({ product }: ProductSchemaType) => {
 
       <Link
         href={`/product/${product._id}`}
-        className="absolute bottom-0 group/button flex w-full justify-between h-12 p-2 items-center backdrop-blur-md bg-black/50 transition-all hover/button:bg-black/10 "
+        className="absolute bottom-0 group/button flex w-full justify-between items-center h-12 p-2  !underline-offset-2 backdrop-blur-md bg-black/50 transition-all hover/button:bg-black/10 "
       >
-          {/* <h3 className="flex items-center text-sm font-medium text-white overflow-hidden whitespace-nowrap text-ellipsis">
-              {product.name}
-            </h3> */}
           <span className="absolute inset-y-0 left-0 w-[2px] backdrop-blur-md bg-white/50 transition-all group-hover/button:w-full group-active:bg-accent"></span>
-          <span className="relative flex items-center text-sm font-medium text-white transition-colors group-hover/button:text-black">
+          <span className="relative p-4 text-sm text-white  transition-colors group-hover/button:text-black">
             {product.name}
           </span>
-          <span className="flex items-center z-10 no-underline text-white text-sm rounded-xl transition-colors group-hover/button:text-black">
-            {product.price}€
+          <span className="text-white text-sm z-10 whitespace-nowrap transition-colors group-hover/button:text-black">
+            {`${product.price} €`}
           </span>
-        {/* <p className="mt-1.5 max-w-[40ch] min-h-[30px] text-xs text-white px-2 ">
-            {product.describe}
-          </p> */}
       </Link>
       <CarouselPrevious className="absolute top-2/4 left-2 z-50 bg-white" />
       <CarouselNext className="absolute top-2/4 right-2 z-50 bg-white" />

@@ -1,11 +1,13 @@
 import { ProductsSchema } from '@/app/schema/products.schema'
 import AdminProductCard from '../AdminProductCard'
 import AddProductCard from './AddProductCard'
+import { revalidateTag } from 'next/cache'
 
 const AdminProducts = async () => {
   // State or Variables Management
   let arrayOfCategory: string[] = []
   // Fetch Query //
+  revalidateTag('products')
   const options = {
     method: 'GET',
     next: { tags: ['products'] },
@@ -34,7 +36,7 @@ const AdminProducts = async () => {
             key={index}
             className="gridOfProduct flex flex-wrap justify-start gap-6  px-4 items-start w-full"
           >
-            {/* Affiche les produits des # categories */}
+            {/* Affiche les produits des categories */}
             {parsedData
               ?.filter((products: any) => products.category === category)
               .map((product: any, index: number) => (

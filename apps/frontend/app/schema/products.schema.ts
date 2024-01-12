@@ -8,6 +8,8 @@ export const ProductSchema = z.object({
   price: z.number().positive(),
   category: z.string(),
   popular: z.boolean(),
+  colors: z.array(z.string()),
+  material: z.string(),
   imageArray: z.array(z.object({ name: z.string(), path: z.string(), main: z.boolean() })),
 })
 

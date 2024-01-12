@@ -10,12 +10,7 @@ import { RiCloseCircleLine } from 'react-icons/ri'
 import { useFieldArray } from 'react-hook-form'
 import { FaStar } from 'react-icons/fa'
 
-const ImageCropper = ({
-  control,
-  watch,
-  errors,
-  clearErrors,
-}: any) => {
+const ImageCropper = ({ control, watch, errors, clearErrors }: any) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const [open, setOpen] = useState(false)
@@ -155,25 +150,23 @@ const ImageCropper = ({
         leaveFrom="opacity-100 translate-x-0"
         leaveTo="opacity-0 -translate-x-96"
       >
-      
-        <div className="grid grid-cols-3 xl:grid-cols-4 gap-4  w-full  max-w-[800px] justify-center">
-          <div className="">
-            <input
-              type="file"
-              className="hidden"
-              accept="image/*"
-              id="addImage"
-              onChange={(e) => handleOpenCropper(e)}
-            />
-            <label
-              htmlFor="addImage"
-              className="flex w-44 h-44 justify-center items-center rounded-lg p-4 shadow-sm hover:shadow-xl hover:scale-105 outline-1 hover:outline transition-all shadow-indigo-100 bg-primary cursor-pointer"
+        <div className="grid grid-cols-3 xl:grid-cols-4 gap-4 w-full max-w-[800px] justify-center">
+          <input
+            type="file"
+            className="sr-only"
+            accept="image/*"
+            id="addImage"
+            aria-label='Télécharger une image'
+            onChange={(e) => handleOpenCropper(e)}
             >
-              <div className="text-7xl">
-                <FiPlusCircle />
-              </div>
-            </label>
-          </div>
+            </input>
+          <label
+            htmlFor="addImage"
+            aria-label='Télécharger une image'
+            className="flex w-44 h-44 justify-center items-center rounded-lg p-4 shadow-sm hover:shadow-xl hover:scale-105 outline-1 hover:outline transition-all shadow-indigo-100 bg-primary cursor-pointer"
+          >
+            <FiPlusCircle className="text-7xl" />
+          </label>
           {imageArray &&
             imageArray?.map((imgObj: any, index: number) => (
               <div

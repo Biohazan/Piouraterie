@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'sofia': ['Arial', 'Ubuntu' ]
+      },
       keyframes: {
         slideinTop: {
           '0%': {
@@ -29,6 +32,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('autoprefixer')],
 }
 export default config

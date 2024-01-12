@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import ImageCropper from './ImageCropper'
+import ImageCropper from './Image'
 import { ProductType } from '@/app/schema/products.schema'
 import { Controller, useForm } from 'react-hook-form'
 import {
@@ -21,13 +21,14 @@ import {
 } from '@/lib/fetchFunction'
 import { useSearchParams } from 'next/navigation'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { toast } from '@/components/ui/use-toast'
 import { useSession } from 'next-auth/react'
 import { useProductStore } from '@/app/store/ProductStore'
 import { Switch } from '@/components/ui/switch'
 import { transformAndResizeBody } from '@/lib/cropImage'
 import { redirectToProducts } from '../produits/serverActions'
+import Details from './Details'
 
 function FormProduct({
   product,
@@ -83,7 +84,7 @@ function FormProduct({
       })
     },
     onError: () => {
-      alert('there was an error')
+      alert('Il y a une erreur')
     },
   })
 
@@ -99,20 +100,45 @@ function FormProduct({
     setValue,
     formState: { errors, isDirty, dirtyFields },
   } = useForm({
-    defaultValues: data || product,
+    defaultValues: data,
   })
 
   /// Reset Form ///
-  useEffect(() => {
-    isNew && reset({ ...product })
-    isNew && console.log('reset')
-  }, [isNew, reset, product])
+  // useEffect(() => {
+  //   isNew && reset({ ...product })
+  //   isNew && console.log('reset')
+  // }, [isNew, reset, product])
 
-  const fetchedData = { ...data }  
+  const fetchedData = data
+
+  const appendBody = (data: any, formData: any, isNew: boolean) => {
+    
+    console.log('dirtyFirlds:', dirtyFields);
+    const dataToAppend = isNew ? data : dirtyFields
+    
+    for (const item in dataToAppend) {
+      console.log(item, Array.isArray(data[item]))
+      
+      console.log('dataToAppend:', item);
+
+      if (Array.isArray(data[item])) {
+        data[item].forEach((arrayItem: any) => {
+          formData.append(
+            `${item}[]`,
+            item === 'imageArray' ? JSON.stringify(arrayItem) : arrayItem,
+          )
+        })
+      } else {        
+        formData.append(`${item}`, data[item])
+      }
+    }
+    return formData
+  }
 
   /// Fonction d'envoi du formulaire ///
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: any, e: any) => {
     // console.log('onSubmit:', data)
+    e.preventDefault()
     clearErrors()
 
     if (data.imageArray === undefined || data.imageArray.length === 0) {
@@ -123,57 +149,53 @@ function FormProduct({
       setTab('image')
       return
     }
+    if (data.colors === undefined || data.colors.length === 0) {
+      setError('colors', {
+        type: 'custom',
+        message: 'Ajouter au moins une couleur',
+      })
+      setTab('details')
+      return
+    }
+
+    if (errors.name || errors.describe || errors.price) {
+      setTab('information')
+      return
+    }
+    /// New product ///
     if (product._id === '') {
       const formData = await transformAndResizeBody(data)
       delete data._id
-      for (const item in data) {
-        if (item === 'imageArray') {
-          data[item].forEach((image: any) => {
-            formData.append('imageArray[]', JSON.stringify(image))
-          })
-        } else {
-          formData.append(`${item}`, data[item])
-        }
-      }
+      const appenedBody = appendBody(data, formData, true)
       const options = {
         method: 'POST',
-        body: formData,
+        body: appenedBody,
         headers: {
           authorization: `Bearer ${session?.backendTokens.accessToken}`,
         },
       }
       console.log(data)
-      // mutate(options, 'product')
       const res = await fetchFonction(options, 'product')
       console.log('res without id: ', res)
       redirectToProducts()
-      // if (res.status === 201) {
-      //   reset()
-      // }
+
+      /// Existing Product ///
     } else {
+      /// No Changement ///
       if (!isDirty) {
         console.log(data)
-
         toast({
           title: "Il n'y a pas de modification....",
           description: "Modifier votre produit avant de l'envoyer",
         })
         return
+        /// With Changement ///
       } else if (product._id === fetchedData._id) {
         const formData = await transformAndResizeBody(data)
-        for (const item in dirtyFields) {
-          console.log('not appened')
-          if (item === 'imageArray') {
-            data[item].forEach((image: any) => {
-              formData.append('imageArray[]', JSON.stringify(image))
-            })
-          } else if (dirtyFields[item]) {
-            formData.append(`${item}`, data[item])
-          }
-        }
+        const appenedBody = appendBody(data, formData, false)
         const options = {
           method: 'PUT',
-          body: formData,
+          body: appenedBody,
           headers: {
             authorization: `Bearer ${session?.backendTokens.accessToken}`,
           },
@@ -181,18 +203,12 @@ function FormProduct({
         console.log(data)
         mutate({ productId, options })
         redirectToProducts()
-        // const res = await fetchFonction(options, endpoint)
-        // console.log('res: ', res)
       }
     }
   }
 
   if (isInitialLoading) {
     return <span>Loading...</span>
-  }
-
-  if (error instanceof Error) {
-    // return <span>Error: {error.message}</span>
   }
 
   return (
@@ -242,7 +258,6 @@ function FormProduct({
               {errors.name ? `${errors.name.message}` : 'Nom du produit'}
             </span>
           </label>
-          {/* {errors.name && <span className='spanError'>{`${errors.name.message}`}</span>} */}
         </div>
         <div className="m-6">
           <label
@@ -261,7 +276,6 @@ function FormProduct({
                 required: 'Entrer une description',
               })}
             />
-
             <span
               className={`${
                 errors.describe && 'text-red-500'
@@ -403,9 +417,10 @@ function FormProduct({
               id="popular"
               className="data-[state=unchecked]:bg-red-500 data-[state=checked]:bg-yellow-300"
               // checked={product.popular}
-              defaultChecked={product.popular || false}
-              onCheckedChange={(e) => setValue('popular', e, { shouldDirty: true })}
-              {...register('test')}
+              defaultChecked={data.popular || false}
+              onCheckedChange={(e) =>
+                setValue('popular', e, { shouldDirty: true })
+              }
             />
           </div>
         </div>
@@ -419,7 +434,16 @@ function FormProduct({
           clearErrors={clearErrors}
         />
       </TabsContent>
-      <TabsContent value="stock" className="w-full min-h-[400px]"></TabsContent>
+      <TabsContent value="details" className="w-full min-h-[400px]">
+        <Details
+          product={data}
+          control={control}
+          watch={watch}
+          errors={errors}
+          register={register}
+          clearErrors={clearErrors}
+        />
+      </TabsContent>
     </form>
   )
 }

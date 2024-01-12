@@ -21,21 +21,21 @@ const AddProduct = ({ product }: any) => {
         <TabsList className="grid grid-cols-3 h-10 w-[600px] ">
           <TabsTrigger
             value="information"
-            className="pb-3 border-b-2 border-transparent font-medium text-black hover:border-gray-400 hover:font-bold"
+            className="pb-3 border-b-2 border-transparent text-black hover:border-gray-400 hover:font-bold"
           >
             Information
           </TabsTrigger>
           <TabsTrigger
             value="image"
-            className="pb-3 border-b-2 border-transparent font-medium text-black hover:border-gray-400 hover:font-bold"
+            className="pb-3 border-b-2 border-transparent text-black hover:border-gray-400 hover:font-bold"
           >
             Image
           </TabsTrigger>
           <TabsTrigger
-            value="stock"
-            className="pb-3 border-b-2 border-transparent font-medium text-black hover:border-gray-400 hover:font-bold"
+            value="details"
+            className="pb-3 border-b-2 border-transparent text-black hover:border-gray-400 hover:font-bold"
           >
-            Stock
+            Détails
           </TabsTrigger>
         </TabsList>
       </div>

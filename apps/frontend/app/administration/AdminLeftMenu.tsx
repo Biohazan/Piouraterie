@@ -4,22 +4,22 @@ import { IoIosArrowDown } from 'react-icons/io'
 const AdminLeftMenu = () => {
   
   return (
-    <div className="flex flex-auto flex-col m-6 mr-0 w-72 rounded-full relative min-h-[100px] pt-6 bg-primary-foreground shadow-2xl">
-      <ul className="space-y-1 sticky top-20 my-16">
+    <div className="flex flex-auto flex-col m-6 mr-0 w-64 rounded-xl relative min-h-[100px] pt-6 bg-primary-foreground shadow-2xl">
+      <ul className="space-y-1 sticky top-20 ">
         <li className='p-2'>
           <details className="group [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex my-2 cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-black hover:bg-accent hover:text-gray-700">
-              <span className="font-bold"> Produits </span>
+              <span className=""> Produits </span>
 
               <span className="shrink-0 transition duration-200 group-open:-rotate-180">
-                <IoIosArrowDown />
+                <IoIosArrowDown color={'grey'}/>
               </span>
             </summary>
             <ul className="space-y-2 px-4">
               <li className='p-0'>
                 <Link
                   href="/administration/produits"
-                  className="block rounded-lg p-2 text-sm font-bold !no-underline text-black hover:bg-accent hover:text-gray-700"
+                  className="block rounded-lg p-2 text-sm  !no-underline text-black hover:bg-accent hover:text-gray-700"
                 >
                   Tous les produits
                 </Link>
@@ -27,7 +27,7 @@ const AdminLeftMenu = () => {
               <li className='p-0 '>
                 <Link
                   href="/administration/ajouter_un_produit?productId=nouveau_produit"
-                  className="block rounded-lg p-2 text-sm font-bold !no-underline text-black hover:bg-accent hover:text-gray-700"
+                  className="block rounded-lg p-2 text-sm  !no-underline text-black hover:bg-accent hover:text-gray-700"
                 >
                   Ajouter un produit
                 </Link>
@@ -38,10 +38,10 @@ const AdminLeftMenu = () => {
         <li className='p-2'>
           <details className="group [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-black hover:bg-accent hover:text-gray-700">
-              <span className="font-bold">Clients</span>
+              <span className="">Clients</span>
 
               <span className="shrink-0 transition duration-200 group-open:-rotate-180">
-                <IoIosArrowDown />
+                <IoIosArrowDown color={'grey'}/>
               </span>
             </summary>
 
@@ -49,7 +49,7 @@ const AdminLeftMenu = () => {
               <li className='p-0'>
                 <Link
                   href="/produits?category=etuis_à_cigarettes"
-                  className="block rounded-lg px-4 py-2 text-sm !no-underline font-bold text-black hover:bg-accent hover:text-gray-700"
+                  className="block rounded-lg px-4 py-2 text-sm !no-underline  text-black hover:bg-accent hover:text-gray-700"
                 >
                   Commandes
                 </Link>

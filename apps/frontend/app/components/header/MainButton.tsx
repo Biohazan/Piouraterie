@@ -43,7 +43,7 @@ const MainButton = () => {
     >
       {session && session.user ? (
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex gap-2 items-center text-xs rounded whitespace-nowrap border border-current p-2 sm:px-3 sm:py-2 font-bold tracking-wider transition hover:rotate-2 hover:scale-110 text-accent focus:outline-none active:ring active:text-indigo-500">
+          <DropdownMenuTrigger className="flex gap-2 items-center text-sm rounded whitespace-nowrap border border-current p-2 sm:px-3 sm:py-2 font-bold tracking-wider transition hover:rotate-2 hover:scale-110 text-accent focus:outline-none active:ring active:text-indigo-500">
             <CgProfile size={20} />
             {`${session.user.name} ${session.user.surname}`}
           </DropdownMenuTrigger>

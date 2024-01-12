@@ -24,6 +24,12 @@ export class Product {
   popular: boolean;
 
   @Prop()
+  colors: Array<string>;
+
+  @Prop()
+  material: string;
+
+  @Prop()
   imageArray: Array<{ name: string; path: string; main: boolean }>;
 }
 

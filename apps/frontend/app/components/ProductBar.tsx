@@ -13,8 +13,8 @@ const ProductBar = ({ productNumber }: { productNumber: Number }) => {
   const { updateSortOrder, sortName } = useSortStore()
 
   return (
-    <div className="flex flex-wrap w-full justify-between items-center text-sm h-24 px-4 max-w-7xl">
-      <div>
+    <div className="flex flex-wrap w-full justify-between items-center text-sm h-16 px-4 max-w-7xl">
+      <div className='font-sofia'>
         <p>Il y a {productNumber as number} produits</p>
       </div>
       <div className="relative flex  items-center gap-2 h-10">
@@ -22,7 +22,7 @@ const ProductBar = ({ productNumber }: { productNumber: Number }) => {
           Trier par :
         </span>
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center justify-between gap-8 h-full px-4 w-[190px] rounded-lg bg-white border-gray-300 hover:bg-gray-100 text-gray-700 sm:text-sm cursor-pointer">
+          <DropdownMenuTrigger className="flex items-center justify-between gap-8 h-9 px-4 w-[190px] rounded-lg bg-white border-gray-300 hover:bg-gray-100 text-gray-700 sm:text-sm cursor-pointer">
             {sortName}
             <HiOutlineSelector />
           </DropdownMenuTrigger>

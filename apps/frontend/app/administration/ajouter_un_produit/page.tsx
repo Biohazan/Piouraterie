@@ -3,18 +3,16 @@ import AddProduct from './AddProduct'
 import { getAuthSession } from '@/lib/auth'
 
 const fetchProducts = async (productId: string) => {
-  const session = await getAuthSession()
-  console.log('Page fetchproducts:', session?.user.role);
-  
+  const session = await getAuthSession()  
   const option = {
     headers: {
       authorization: `Bearer ${session?.backendTokens.accessToken}`,
     },
   }
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/product/${productId}`, option)
-  // console.log(res);
   
   const data = await res.json()    
+  // console.log(data);
   return ProductSchema.parse(data)
   // return data
 }
@@ -23,9 +21,7 @@ const Page = async ({
   searchParams,
 }: {
   searchParams: { productId: string, category: string }
-}) => {
-  console.log(searchParams?.category );
-  
+}) => {  
   const initialData = {
     _id: '',
     name: '',
@@ -33,7 +29,8 @@ const Page = async ({
     picUrl: '',
     price: null,
     category: searchParams?.category || '',
-    popular: false
+    popular: false,
+    material: ''
     // imageArray: [{}],
   }
 

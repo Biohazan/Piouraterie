@@ -73,10 +73,10 @@
  
 @layer base {
   * {
-    @apply border-border;
+    @apply tracking-wider;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-primary-foreground text-foreground;
   }
 }
 
@@ -91,30 +91,13 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color: #DDE0E1
-  
-  /* linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
 }
-
-/* body, html, #root {
-  height: 100%;
-} */
-
-/* a {
-  padding: 10px;
-} */
-/* .SwitchRoot {
-  background-color: red;
+h1 {
+  font-family: var(--font-princess), sans-serif;
 }
-.SwitchRoot[data-state='checked'] {
-  background-color: green;
-} 
-*/
-
+span, a, button {
+  font-family: var(--font-sofia), sans-serif;
+}
 a:hover {
   text-decoration: underline;
   @apply underline-offset-8;

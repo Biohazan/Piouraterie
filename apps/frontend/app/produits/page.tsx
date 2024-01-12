@@ -9,8 +9,8 @@ export const fetchProducts = async (
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/products/${catParams}?${sortOrder}`,
   )
-  const data = await res.json()
-  return ProductsSchema.parse(data)
+  const data = await res.json()  
+  return data
 }
 
 const Products = async ({

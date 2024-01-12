@@ -26,7 +26,7 @@ function Header() {
           />
         </Link>
 
-        <div className="flex justify-around items-center">
+        <div className="flex justify-between items-center">
           <Transition
             className="hidden lg:flex z-50"
             show={true}

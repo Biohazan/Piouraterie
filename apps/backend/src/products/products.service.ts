@@ -18,8 +18,9 @@ export class ProductsService {
     queryParams: string,
   ): Promise<Product[]> {
     if (category === 'all') {
-      console.log(queryParams);
-      return this.productModel.find().sort(queryParams).exec();
+      console.log('findByCategory queryParams: ', queryParams);
+      const products = await this.productModel.find().sort(queryParams).exec();
+      return products;
     }
     if (category === 'popular') {
       return this.productModel.find({ popular: true }).exec();

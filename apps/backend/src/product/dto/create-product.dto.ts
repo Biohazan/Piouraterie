@@ -15,6 +15,10 @@ export class CreateProductDto {
   popular: boolean;
   @IsArray()
   imageArray: ImageDto[];
+  @IsArray()
+  colors: string[];
+  @IsString()
+  material: string;
 }
 
 export class ImageDto {

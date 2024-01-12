@@ -41,6 +41,14 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Array)
+], Product.prototype, "colors", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Product.prototype, "material", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", Array)
 ], Product.prototype, "imageArray", void 0);
 exports.Product = Product = __decorate([
     (0, mongoose_1.Schema)()

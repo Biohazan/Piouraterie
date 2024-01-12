@@ -15,6 +15,7 @@ import { DialogClose } from '@radix-ui/react-dialog'
 import { editProduct } from '@/lib/fetchFunction'
 import { useSession } from 'next-auth/react'
 import { redirectToProducts } from './produits/serverActions'
+import { useEffect, useState } from 'react'
 
 const AdminHeader = () => {
   const path = usePathname()
@@ -22,19 +23,21 @@ const AdminHeader = () => {
   const product = useProductStore((state) => state)
   const productId = searchParams?.get('productId') as string
   const { data: session } = useSession()
+  const [dynamicTitle, setDynamic] = useState('')
 
-  let dynamicTitle
-
-  switch (productId) {
-    case 'nouveau_produit':
-      dynamicTitle = 'Nouveau produit'
-      break
-    case null:
-      dynamicTitle = 'Tous les produits...'
-      break
-    default:
-      dynamicTitle = product.name
-  }
+  useEffect(() => {
+    switch (productId) {
+      case 'nouveau_produit':
+        setDynamic('Nouveau produit')
+        break
+      case null:
+        setDynamic('Tous les produits...')
+        break
+      default:
+        setDynamic(product.name)
+        break
+    }
+  }, [product.name, productId])
 
   const deleteItem = async () => {
     const options = {
@@ -42,7 +45,7 @@ const AdminHeader = () => {
       headers: {
         authorization: `Bearer ${session?.backendTokens.accessToken}`,
       },
-      user: session?.user
+      user: session?.user,
     }
     const deleteItem = await editProduct({ productId, options })
     if (deleteItem.status === 204) {
@@ -51,15 +54,15 @@ const AdminHeader = () => {
   }
 
   return (
-    <div className="adminHeader rounded-full mt-6 flex items-center justify-between min-h-[100px] w-full p-10 bg-primary-foreground shadow-md">
-      <h1 className="text-xl font-bold">{dynamicTitle}</h1>
+    <div className="adminHeader rounded-full  flex items-center justify-between min-h-[100px] w-full p-8 bg-primary-foreground shadow-md">
+      <h1 className="text-lg font-bold">{dynamicTitle}</h1>
       {path?.split('/')[2] === 'ajouter_un_produit' ? (
         <div className="flex items-center gap-10">
           {productId !== 'nouveau_produit' && (
             <Dialog>
               <DialogTrigger className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
                 <span className="absolute inset-y-0 right-0 w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
-                <span className="relative tracking-wider text-sm font-bold text-red-500 transition-colors group-hover:text-white">
+                <span className="relative tracking-wider text-sm text-red-500 transition-colors group-hover:text-white">
                   Supprimer
                 </span>
               </DialogTrigger>
@@ -69,12 +72,13 @@ const AdminHeader = () => {
                     Confirmation de suppression
                   </DialogTitle>
                   <DialogDescription className="py-1 text-base">
-                    Etes vous sur de vouloir supprimer <strong>&quot;{product.name}&quot;</strong> ?
+                    Etes vous sur de vouloir supprimer{' '}
+                    <strong>&quot;{product.name}&quot;</strong> ?
                   </DialogDescription>
-                  <div className="flex gap-24 items-center justify-center py-6">
+                  <div className="flex gap-24 items-center justify-center py-4">
                     <DialogClose className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
                       <span className="absolute inset-y-0 right-0 w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
-                      <span className="relative tracking-wider text-sm font-bold text-red-500 transition-colors group-hover:text-white">
+                      <span className="relative tracking-wider text-xs text-red-500 transition-colors group-hover:text-white">
                         Non
                       </span>
                     </DialogClose>
@@ -83,7 +87,7 @@ const AdminHeader = () => {
                       className="group relative inline-block overflow-hidden rounded-full border border-accent px-5 py-2 focus:outline-none focus:ring cursor-pointer"
                     >
                       <span className="absolute inset-y-0 left-0 w-[2px] bg-accent transition-all group-hover:w-full group-active:bg-accent"></span>
-                      <span className="relative tracking-wider text-base font-bold text-accent transition-colors group-hover:text-white">
+                      <span className="relative tracking-wider text-xs text-accent transition-colors group-hover:text-white">
                         Oui
                       </span>
                     </button>
@@ -100,17 +104,16 @@ const AdminHeader = () => {
           >
             <span className="absolute inset-y-0 left-0 w-[2px] bg-accent transition-all group-hover:w-full group-active:bg-accent"></span>
 
-            <span className="relative tracking-wider text-base font-bold text-accent transition-colors group-hover:text-white">
+            <span className="relative tracking-wider text-sm text-accent transition-colors group-hover:text-white">
               Envoyer
             </span>
           </button>
         </div>
       ) : (
         <div className="searchbar relative">
-          <label htmlFor="Search" className="sr-only">
+          {/* <label htmlFor="Search" className="sr-only">
             Rechercher un produit
-          </label>
-
+          </label> */}
           <input
             type="text"
             id="Search"
