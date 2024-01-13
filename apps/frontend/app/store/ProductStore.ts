@@ -15,7 +15,9 @@ const initialState = {
   price: 0,
   category: '',
   imageArray: [],
-  popular: false
+  popular: false,
+  colors: [],
+  material: ''
 }
 
 export const useProductStore = create<ProductType & Actions>()(
