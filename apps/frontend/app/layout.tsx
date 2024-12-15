@@ -5,12 +5,20 @@ import Header from './components/header/Header'
 import Footer from './components/Footer'
 import NextBreadcrumb from './components/NextBreadcrumb'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Providers from './context/Providers'
 
 const ubuntu = Ubuntu({ subsets: ['latin'], weight: ['300'] })
-const sofia = Sofia({ subsets: ['latin'], weight: ['400'], variable: '--font-sofia', })
-const princess = Princess_Sofia({ subsets: ['latin'], weight: ['400'], variable: '--font-princess', })
+const sofia = Sofia({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-sofia',
+})
+const princess = Princess_Sofia({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-princess',
+})
 
 export const metadata: Metadata = {
   title: 'La Piouraterie',
@@ -22,11 +30,15 @@ export default async function RootLayout({
   modal,
 }: {
   children: React.ReactNode
-  modal?: React.ReactNode
+  modal: React.ReactNode
 }) {
   return (
     <html lang="fr">
-      <body className={`${ubuntu.className} ${sofia.variable} ${princess.variable}`} cz-shortcut-listen="true">
+
+      <body
+        className={`${ubuntu.className} ${sofia.variable} ${princess.variable} !text-amber-900`}
+        cz-shortcut-listen="true"
+      >
         <Providers>
           {modal}
           <Header />
@@ -38,7 +50,7 @@ export default async function RootLayout({
           /> */}
           {children}
           <Footer />
-          <ReactQueryDevtools />
+          {/* <ReactQueryDevtools /> */}
         </Providers>
       </body>
     </html>

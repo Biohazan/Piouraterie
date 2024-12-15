@@ -2,7 +2,6 @@
 import '../../styles/header.css'
 import Image from 'next/image'
 import logo from '@/public/logo_long.jpg'
-import { MouseEventHandler, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import NavigationBar from './NavigationBar'
 import DropdownMobile from './DropdownMobile'
@@ -14,7 +13,7 @@ function Header() {
   return (
     <>
       <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-4 w-full bg-white py-2 shadow-md">
-        {/* Desktop Menu */}
+        {/* /// Desktop Menu /// */}
         <Link href="/" className="flex items-center h-full ml-5 self-center">
           <Image
             src={logo}
@@ -31,19 +30,18 @@ function Header() {
             className="hidden lg:flex z-50"
             show={true}
             appear={true}
-            enter="transition-all ease-in-out duration-300"
+            enter="transition-all ease-in-out"
             enterFrom="opacity-0 translate-x-[60px]"
             enterTo="opacity-100 translate-x-0"
-            leave="transition-all ease-in-out duration-300"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-x-[60px]"
           >
-            <NavigationBar />
+            <div>Site en cours de construction...</div>
+            {/* <NavigationBar /> */}
           </Transition>
-          <div className="relative flex items-center ml-2 sm:mx-6">
-            <MainButton />
+          <div className="relative flex items-center ml-2 lg:mx-6 ">
+            {/* <MainButton /> */}
           </div>
-        
+          
+      {/* /// Mobile Menu ///   */}
         <Transition
           className="lg:hidden"
           show={true}
@@ -55,7 +53,7 @@ function Header() {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-x-[60px]"
         >
-          <DropdownMobile />
+          {/* <DropdownMobile /> */}
         </Transition>
         </div>
       </div>

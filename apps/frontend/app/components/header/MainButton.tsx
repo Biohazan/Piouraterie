@@ -20,7 +20,7 @@ import LoginForm from './LoginForm'
 import Image from 'next/image'
 import logo from '@/public/logo.jpg'
 import { IconContext } from 'react-icons'
-import RegisterForm from '../RegisterForm'
+import RegisterForm from './RegisterForm'
 
 const MainButton = () => {
   const [openRegister, setOpenRegister] = useState(false)
@@ -108,7 +108,7 @@ const MainButton = () => {
                   alt="Logo la piouraterie"
                   className="h-auto rounded-full absolute -top-32"
                 />
-                <h1 className="text-center text-xl font-bold text-accent mt-24">
+                <h1 className="text-center text-2xl p-4 font-bold text-accent mt-24">
                   {openRegister ? 'Créer un compte' : 'Connectez vous'}
                 </h1>
               </div>

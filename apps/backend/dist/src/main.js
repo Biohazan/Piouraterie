@@ -8,7 +8,7 @@ async function bootstrap() {
         logger: ['log', 'error', 'warn'],
     });
     app.enableCors({
-        origin: ['https://piouraterie.vercel.app', 'http://localhost:3000'],
+        origin: ['https://piouraterie.vercel.app', 'http://localhost:3564'],
     });
     app.useStaticAssets((0, path_1.join)(__dirname, '..', '../public'), {
         prefix: '/public/',

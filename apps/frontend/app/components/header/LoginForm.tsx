@@ -43,7 +43,7 @@ const LoginForm = ({ setRegister }: any) => {
       username: data.email,
       password: data.password,
       redirect: false,
-    })
+    })    
     if (result?.error) {
       console.log(result)
       setlogErrors(true)
@@ -51,9 +51,9 @@ const LoginForm = ({ setRegister }: any) => {
   }
 
   return (
-    <form className="mb-6 mt-6 space-y-6 " onSubmit={handleSubmit(onSubmit)}>
+    <form className="mb-6 mt-6 space-y-6" onSubmit={handleSubmit(onSubmit)}>
       {logErrors && (
-        <span className="text-red-500 text-xs absolute bottom-5">
+        <span className="flex justify-center text-red-500 text-sm w-full">
           Cette combinaison email et mot de passe ne fonctionne pas
         </span>
       )}

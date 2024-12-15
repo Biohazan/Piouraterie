@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-import RegisterForm from '@/app/components/RegisterForm'
+import RegisterForm from '@/app/components/header/RegisterForm'
 
 const RegisterModal = () => {
   const router = useRouter()

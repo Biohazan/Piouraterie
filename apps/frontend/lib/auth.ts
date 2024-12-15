@@ -56,7 +56,7 @@ export const authOptions: AuthOptions = {
         if (res.status === 401) {
           console.log('res401', res.statusText)
           return null
-        }
+        }        
         const user = await res.json()
         return user
       },

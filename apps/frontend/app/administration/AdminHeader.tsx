@@ -75,22 +75,22 @@ const AdminHeader = () => {
                     Etes vous sur de vouloir supprimer{' '}
                     <strong>&quot;{product.name}&quot;</strong> ?
                   </DialogDescription>
-                  <div className="flex gap-24 items-center justify-center py-4">
-                    <DialogClose className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
-                      <span className="absolute inset-y-0 right-0 w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
-                      <span className="relative tracking-wider text-xs text-red-500 transition-colors group-hover:text-white">
-                        Non
-                      </span>
-                    </DialogClose>
+                  <div className="flex gap-16 items-center justify-center py-4">
                     <button
                       onClick={deleteItem}
                       className="group relative inline-block overflow-hidden rounded-full border border-accent px-5 py-2 focus:outline-none focus:ring cursor-pointer"
                     >
-                      <span className="absolute inset-y-0 left-0 w-[2px] bg-accent transition-all group-hover:w-full group-active:bg-accent"></span>
-                      <span className="relative tracking-wider text-xs text-accent transition-colors group-hover:text-white">
+                      <span className="absolute inset-y-0 right-0  w-[2px] bg-accent transition-all group-hover:w-full group-active:bg-accent"></span>
+                      <span className="relative tracking-wider text-sm text-accent transition-colors group-hover:text-white">
                         Oui
                       </span>
                     </button>
+                    <DialogClose className="group relative inline-block overflow-hidden rounded-full border border-red-500 px-5 py-2 focus:outline-none focus:ring cursor-pointer">
+                      <span className="absolute inset-y-0 left-0  w-[2px] bg-red-500 transition-all group-hover:w-full group-active:bg-red-500"></span>
+                      <span className="relative tracking-wider text-sm text-red-500 transition-colors group-hover:text-white">
+                        Non
+                      </span>
+                    </DialogClose>
                   </div>
                 </DialogHeader>
               </DialogContent>

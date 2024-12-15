@@ -118,6 +118,12 @@ li {
   background-size: cover;
 }
 
+.describeBackground {
+  background: url('../public/arbre_briquets.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* Loader */
 
 .lds-roller {

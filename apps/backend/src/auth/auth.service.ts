@@ -15,7 +15,8 @@ export class AuthService {
 
   async validateUser(dto: LoginDto) {
     const user = await this.userService.getUser(dto.username);
-    if (user && compare(dto.password, user.password)) {
+    const isSamePassword = await compare(dto.password, user.password);
+    if (user && isSamePassword) {
       return user;
     }
     throw new UnauthorizedException();

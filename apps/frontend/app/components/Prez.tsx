@@ -4,14 +4,14 @@ import prezLogo from '../../public/arbreFlou.jpg'
 const Prez = async () => {
   return (
     <section className="flex lg:flex-col justify-center w-full">
-      <div className="relative w-full mb-6 bg-primary-foreground">
+      <div className="relative w-full bg-primary-foreground h-[50vh]">
         <Image
           src={prezLogo}
           alt="Photo de l'arbre à briquets"
           width={2500}
-          className="object-cover w-full h-[80vh] sm:max-h-screen"
+          className="object-cover w-full h-[50vh] sm:max-h-screen"
         />
-        <div className="absolute bottom-[6vw] right-[6vw] ml-[6vw] max-w-xl flex flex-col items-center justify-center text-center px-4 py-6 rounded-bl-3xl rounded-tr-3xl bg-primary-foreground">
+        <div className="absolute bottom-[3vw] right-[3vw] ml-[3vw] max-w-xl flex flex-col items-center justify-center text-center px-4 py-6 rounded-bl-3xl rounded-tr-3xl bg-primary-foreground">
           <h1 className="pb-4 text-xl font-bold font-sofia underline underline-offset-4">
             BIENVENUE SUR LA PIOURATERIE !
           </h1>
@@ -30,7 +30,8 @@ const Prez = async () => {
           <p className="py-1 text-sm">
             Que ce soit pour offrir ou vous faire plaisir, il vous est possible
             de réaliser une commande personnalisée selon
-            <strong className="font-bold"> vos goûts</strong> et <strong className='font-bold'> vos envies</strong>.
+            <strong className="font-bold"> vos goûts</strong> et{' '}
+            <strong className="font-bold"> vos envies</strong>.
           </p>
 
           <p className="py-1 text-sm">

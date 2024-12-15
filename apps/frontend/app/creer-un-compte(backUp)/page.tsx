@@ -1,4 +1,4 @@
-import RegisterForm from '../components/RegisterForm'
+import RegisterForm from '../components/header/RegisterForm'
 
 const RegisterPage = async () => {
   return (
