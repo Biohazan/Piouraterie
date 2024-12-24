@@ -8,11 +8,11 @@ const Describe = () => {
   return (
     <section className="relative px-4 w-full min-h-screen flex flex-col items-center bg-primary-foreground">
       <div className="flex flex-col items-center gap-12 p-10  rounded-xl max-w-6xl">
-        <h2 className="text-4xl mb-10 p-6 px-12  shadow-lg bg-accent/50 font-princess rounded-br-3xl rounded-tl-3xl">
+        <h2 className="text-4xl lg:mb-10 p-6 px-12  shadow-lg bg-accent/50 font-princess rounded-br-3xl rounded-tl-3xl">
           La Piouraterie et vous
         </h2>
-        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-12 mt-6">
-          <div className="flex flex-col gap-12 p-2 text-justify mt-24">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-12 lg:mt-6">
+          <div className="flex flex-col gap-12 p-2 text-justify lg:mt-24">
             <div>
               La Piouraterie vous propose ses créations en cuir ainsi que des
               bijoux en pierres naturelles.
@@ -34,18 +34,18 @@ const Describe = () => {
             alt="Photo de l'arbre à briquets a saint hilaire"
             width={500}
             height={200}
-            className="object-cover rounded-xl grow-0 shrink-0 mb-24"
+            className="object-cover rounded-xl grow-0 shrink-0 lg:mb-24"
           />
         </div>
-        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-12 mt-6">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-12 lg:mt-6">
           <Image
             src={blagueArbre}
             alt="Photo de l'arbre à briquets a saint hilaire"
             width={500}
             height={200}
-            className="object-cover rounded-xl grow-0 shrink-0 mb-24"
+            className="object-cover rounded-xl grow-0 shrink-0 lg:mb-24"
           />
-          <div className="flex flex-col gap-12 p-2 text-justify mt-24">
+          <div className="flex flex-col gap-12 p-2 lg:mt-24">
             <div>
               🗣️💬 Nous discuterons ensemble de votre projet, vous pourrez alors
               choisir vos cuirs, vos fils, vos perles et ornements divers parmi
@@ -57,7 +57,8 @@ const Describe = () => {
               <ul>
                 <li className='facebookLink'>
                   ▪️ Directement sur la page Facebook de La Piouraterie, via
-                  Messenger en cliquant sur ce lien : <a
+                  Messenger en cliquant sur ce lien :&nbsp; &nbsp;
+                  <a
                     href="https://www.facebook.com/lapiouraterie/"
                     className="contactWrapper text-xl underline-offset-4 dark:decoration-white"
                   >
@@ -67,7 +68,7 @@ const Describe = () => {
                   </a>{' '}
                 </li>
                 <li className='mailLink'>
-                  ▪️ Par mail, à l&apos;adresse{' '}
+                  ▪️ Par mail, à l&apos;adresse{' '}:&nbsp; &nbsp;
                   <a
                     href="mailto:lapiouraterie@gmail.com"
                     className="contactWrapper text-xl underline-offset-4 dark:decoration-white"
@@ -77,7 +78,7 @@ const Describe = () => {
                     </strong>
                   </a>{' '}
                 </li>
-                <li className='instaLink'>▪️ Sur Instagram : <a
+                <li className='instaLink'>▪️ Sur Instagram :&nbsp; &nbsp; <a
                     href="https://www.instagram.com/la_piouraterie"
                     className="contactWrapper text-xl underline-offset-4 dark:decoration-white"
                   >

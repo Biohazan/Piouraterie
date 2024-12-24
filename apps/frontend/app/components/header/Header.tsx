@@ -24,6 +24,8 @@ function Header() {
             loading='lazy'
           />
         </Link>
+        <div className='flex w-full justify-center'>Site en cours de construction...</div>
+
 
         <div className="flex justify-between items-center">
           <Transition
@@ -34,7 +36,7 @@ function Header() {
             enterFrom="opacity-0 translate-x-[60px]"
             enterTo="opacity-100 translate-x-0"
           >
-            <div>Site en cours de construction...</div>
+            {/* <div>Site en cours de construction...</div> */}
             {/* <NavigationBar /> */}
           </Transition>
           <div className="relative flex items-center ml-2 lg:mx-6 ">

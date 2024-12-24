@@ -3,15 +3,15 @@ import prezLogo from '../../public/arbreFlou.jpg'
 
 const Prez = async () => {
   return (
-    <section className="flex lg:flex-col justify-center w-full">
-      <div className="relative w-full bg-primary-foreground h-[50vh]">
+    <section className="flex lg:flex-col justify-center w-full ">
+      <div className="relative w-full bg-primary-foreground h-[52vh]">
         <Image
           src={prezLogo}
           alt="Photo de l'arbre à briquets"
           width={2500}
-          className="object-cover w-full h-[50vh] sm:max-h-screen"
+          className="object-cover w-full h-[52vh] sm:max-h-screen"
         />
-        <div className="absolute bottom-[3vw] right-[3vw] ml-[3vw] max-w-xl flex flex-col items-center justify-center text-center px-4 py-6 rounded-bl-3xl rounded-tr-3xl bg-primary-foreground">
+        <div className="absolute  bottom-[3vw] right-[3vw] ml-[3vw] max-w-xl flex flex-col items-center justify-center text-center px-4 py-6 rounded-bl-3xl rounded-tr-3xl bg-primary-foreground">
           <h1 className="pb-4 text-xl font-bold font-sofia underline underline-offset-4">
             BIENVENUE SUR LA PIOURATERIE !
           </h1>
