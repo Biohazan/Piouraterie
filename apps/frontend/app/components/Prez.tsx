@@ -12,12 +12,12 @@ const Prez = async () => {
           className="object-cover w-full h-[52vh] sm:max-h-screen"
         />
         <div className="absolute  bottom-[3vw] right-[3vw] ml-[3vw] max-w-xl flex flex-col items-center justify-center text-center px-4 py-6 rounded-bl-3xl rounded-tr-3xl bg-primary-foreground">
-          <h1 className="pb-4 text-xl font-bold font-sofia underline underline-offset-4">
-            BIENVENUE SUR LA PIOURATERIE !
+          <h1 className="pb-2 sm:pb-4 text-xl font-bold font-sofia underline underline-offset-4">
+            BIENVENUE SUR LA PIOURATERIE
           </h1>
-          <p className="pb-4 font-bold text-base">
+          <p className="sm:pb-4 font-bold">
             Notre toute nouvelle boutique vous propose un large choix
-            d&apos;accessoires !
+            d&apos;accessoires
           </p>
 
           <p className="py-1 pt-3 text-sm">
@@ -27,14 +27,14 @@ const Prez = async () => {
             <strong className="font-bold">cousues à la main</strong>.
           </p>
 
-          <p className="py-1 text-sm">
+          <p className="pb-1 sm:pb-2 text-sm">
             Que ce soit pour offrir ou vous faire plaisir, il vous est possible
             de réaliser une commande personnalisée selon
             <strong className="font-bold"> vos goûts</strong> et{' '}
             <strong className="font-bold"> vos envies</strong>.
           </p>
 
-          <p className="py-1 text-sm">
+          <p className="pb-1 sm:pb-2 text-sm">
             N&apos;hésitez pas à nous contacter pour créer sur mesure votre
             cadeau idéal !
           </p>

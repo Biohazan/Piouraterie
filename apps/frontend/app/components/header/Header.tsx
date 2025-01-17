@@ -12,9 +12,9 @@ function Header() {
 
   return (
     <>
-      <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-4 w-full bg-white py-2 shadow-md">
+      <div className="relative z-10 flex flex-col sm:flex-row justify-between gap-2 w-full bg-white py-2 shadow-md">
         {/* /// Desktop Menu /// */}
-        <Link href="/" className="flex items-center h-full ml-5 self-center">
+        <Link href="/" className="flex items-center h-full sm:ml-5 self-center">
           <Image
             src={logo}
             quality={20}
@@ -24,10 +24,10 @@ function Header() {
             loading='lazy'
           />
         </Link>
-        <div className='flex w-full justify-center'>Site en cours de construction...</div>
+        <div className='flex pb-2 w-full justify-center'>Site en cours de construction...</div>
 
 
-        <div className="flex justify-between items-center">
+        <div className="hidden justify-between items-center">
           <Transition
             className="hidden lg:flex z-50"
             show={true}
