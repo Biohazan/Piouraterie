@@ -16,7 +16,7 @@ async function Footer() {
             <Image
               src={logo}
               quality={20}
-              width={200}
+              width={150}
               alt="Logo la piouraterie"
               className="h-auto rounded-full"
             />
